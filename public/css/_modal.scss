@@ -1,0 +1,40 @@
+.modal-content{
+	background: #42566f;
+	.modal-col {
+		color:#FFF;
+		padding: 10px 30px;
+
+		h3 {
+			text-align: center;
+		    font-weight: bold;
+		    font-size: 30px;
+		    padding: 10px;
+		    border-bottom:1px solid #CCC;
+		}
+		textarea {
+			height: 120px;
+			width: 100%;
+		}
+	}
+	.modal-col-btn {
+		text-align:center;
+		button {
+			border: none;
+		}
+	}
+	form{ 
+		padding:0;
+	}
+}
+
+.btn-modal-feedback:active, .btn-modal-feedback:focus, .btn-modal-feedback:hover {
+	border:none;
+	outline:none;
+}
+.btn-modal-feedback{
+	border:none;
+	background: #636b6f;
+    right: 10px;
+    position: fixed;
+    bottom: 60px;
+}

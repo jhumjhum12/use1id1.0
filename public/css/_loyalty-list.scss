@@ -1,0 +1,25 @@
+.loyalty-class {
+	list-style:none;
+	padding:15px;
+
+	li {
+		padding:10px;
+
+		border-bottom: 1px solid #CCC;
+		a{	
+			display:block;
+			color: #636b6f;
+    		font-weight: bold;
+			img {
+				display:inline;
+			}
+			span {
+				display:inline;
+				padding-left: 10px;
+			}
+		}
+	}
+	li:last-child {
+		border-bottom: none;
+	}
+}

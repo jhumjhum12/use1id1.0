@@ -1,0 +1,93 @@
+
+.icon-grid
+{
+  vertical-align: top;
+  .fld-link {
+    float: left;
+    width: 24%;
+    margin: 0.5%;
+    height: 170px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    background-position: center 32px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-size: 70px auto;
+    transition: all .1s ease-out;
+    border: solid 1px $color-divider;
+    background-image: url(../img/icons/1id.jpg);
+    span {
+      background: $color-divider;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 11px;
+      letter-spacing: 0px;
+      transition: all .2s ease-in;
+    }
+    &:hover {
+      //background-color: lightgoldenrodyellow;
+      //background-size: 80px auto;
+      //background-position: center 27px;
+      //transition: all .1s ease-in;
+      span {
+        // letter-spacing: 1px;
+        background: $color-blue;
+        color: #fff;
+      }
+    }
+  }
+
+  .personal-data-icon { background-image: url(../img/icons/personal-data.jpg); }
+  .contacts-icon { background-image: url(../img/icons/contacts.jpg); }
+  .loyalty-cards-icon { background-image: url(../img/icons/loyalty-cards.jpg); }
+  .reading-list-icon { background-image: url(../img/icons/reading-list.jpg); }
+  .saved-passwords-icon { background-image: url(../img/icons/saved-passwords.jpg); }
+  .send-information-icon { background-image: url(../img/icons/send-information.jpg); }
+  .task-list-icon { background-image: url(../img/icons/task-list.jpg); }
+  .calendar-icon { background-image: url(../img/icons/calendar.jpg); }
+  .document-server-icon { background-image: url(../img/icons/document-server.jpg); }
+  .resume-generator-icon { background-image: url(../img/icons/resume-generator.jpg); }
+  .virtual-payments-icon { background-image: url(../img/icons/virtual-payments.jpg); }
+  .oneid-dashboard-icon { background-image: url(../img/icons/1id-dashboard.jpg); }
+  .oneid-access-icon { background-image: url(../img/icons/1id-access.jpg); }
+  .oneid-mail-icon { background-image: url(../img/icons/1id-mail.jpg); }
+  .bank-accounts-icon { background-image: url(../img/icons/bank-accounts.jpg); }
+  .biography-data-icon { background-image: url(../img/icons/biography-data.jpg); }
+  .cid-bolcom-icon { background-image: url(../img/icons/cid-bolcom.jpg); }
+  .cid-colruyt-icon { background-image: url(../img/icons/cid-colruyt.jpg); }
+  .cid-dvmc-icon { background-image: url(../img/icons/cid-dvmc.jpg); }
+  .cid-loterij-icon { background-image: url(../img/icons/cid-loterij.jpg); }
+  .cid-lv-insol-icon { background-image: url(../img/icons/cid-lv-isol.jpg); }
+  .cid-lvis-gmbh-icon { background-image: url(../img/icons/cid-lvis-gmbh.jpg); }
+  .companies-icon { background-image: url(../img/icons/companies.jpg); }
+  .contact-data-icon { background-image: url(../img/icons/contact-data.jpg); }
+  .document-server-icon { background-image: url(../img/icons/document-server.jpg); }
+  .entrance-icon { background-image: url(../img/icons/entrance.jpg); }
+  .general-data-icon { background-image: url(../img/icons/general-data.jpg); }
+  .manage-invoices-icon { background-image: url(../img/icons/manage-invoices.jpg); }
+  .marketing-icon { background-image: url(../img/icons/marketing.jpg); }
+  .new-i-payment-icon { background-image: url(../img/icons/new-i-payment.jpg); }
+  .normal-payment-icon { background-image: url(../img/icons/normal-payment.jpg); }
+  .normal-payment-my2my-icon { background-image: url(../img/icons/normal-payment-my2my.jpg); }
+  .passwords-icon { background-image: url(../img/icons/passwords.jpg); }
+  .payment-overview-icon { background-image: url(../img/icons/payment-overview.jpg); }
+  .peer2peer-icon { background-image: url(../img/icons/peer2peer.jpg); }
+  .ready-to-pay-icon { background-image: url(../img/icons/ready-to-pay.jpg); }
+  .security-settings-icon { background-image: url(../img/icons/security-settings.jpg); }
+  .upload-money-icon { background-image: url(../img/icons/upload-money.jpg); }
+  .virtual2exit-icon { background-image: url(../img/icons/virtual2exit.jpg); }
+  .virt-uid2cid-icon { background-image: url(../img/icons/vort-uid2cid.jpg); }
+  .vouchers-icon { background-image: url(../img/icons/vouchers.jpg); }
+  .what-do-i-share-icon { background-image: url(../img/icons/what-do-i-share.jpg); }
+  .withdraw-money-icon { background-image: url(../img/icons/withdraw-money.jpg); }
+  .qualifications-icon { background-image: url(../img/icons/qualifications.jpg); }
+
+
+
+}

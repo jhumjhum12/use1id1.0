@@ -1,0 +1,46 @@
+/*
+.grp {
+    float: left;
+    width: 31.3%;
+    padding: 20px;
+    margin: 0.5%;
+}
+.grp button {
+    display: block;
+    width: 100%;
+}
+.screen-wrap {
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+#screen-wrap-2 .grp {
+    width: 100%;
+    margin: 0;
+}
+
+
+.red {
+    background: red !important;
+}
+
+
+@media screen and (max-width: 640px) {
+    .personal-data-short {
+        width: 100%;
+    }
+
+    .dash-icons {
+        width: 100%;
+    }
+
+    .dash-icons .fld-link {
+        width: 99%;
+    }
+    .grp {
+        width: 98%;
+    }
+}
+*/

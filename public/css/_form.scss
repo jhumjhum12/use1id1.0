@@ -1,0 +1,374 @@
+body, html {
+  height: 100%;
+}
+form {
+
+  .label-required {
+
+  }
+
+  padding: 24px 48px;
+  display: inline-block;
+  width: 100%;
+  
+  .login-logo{
+    padding-bottom: 30px;
+  }
+  .form-group-login {
+    padding:5px 0px;
+  }
+  .form-group {
+    padding:5px 0;
+    .login-inline {
+    float:left;
+    }
+
+  .inline-label{
+    width:30%;
+
+    .control-label{
+      width:100%;
+    }
+  }
+  .inline-field {
+    width:70%;
+
+    .form-input {
+      width:100%;
+    }
+    .form-language {
+      width:100%;
+    }
+  }
+
+    display: block;
+    width: 100%;
+    margin: 1px auto;
+    max-width: 700px;
+
+    .control-label {
+      vertical-align: top;
+      display: inline-block;
+      width: 30%;
+      display: inline;
+      
+      line-height: 32px;
+      text-align: right;
+
+      label {
+        margin: 0;
+        padding: 0 5px;
+        vertical-align: middle;
+        text-transform: uppercase;
+        letter-spacing: 0px;
+        font-size: 11px;
+        line-height: 14px;
+        color: $color-text-secondary;
+        width: 25%;
+        text-align:left;
+        font-weight: 600;
+      }
+
+    }
+
+    .form-control {
+      display:inline;
+      width: 70%;
+      float: right;
+      border: solid 1px $color-gray;
+      height: 32px;
+      box-shadow: none;
+      font-size:14px;
+      &:focus {
+        background: $color-divider;
+      }
+    }
+
+    .control-field {
+      vertical-align: top;
+      display: inline-block;
+      width: 75%;
+    }
+
+    button {
+      float: right;
+    }
+
+  }
+
+  .table-wrap {
+    clear: both;
+    padding: 12px 0;
+    table.table {
+      margin: 24px 0;
+      thead {
+        tr {
+          background: $color-gray;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+
+}
+
+#revisions{
+  
+  textarea{
+    width:100%;
+    height:120px;
+  }
+  textarea:focus {
+    background:#FFF;
+  }
+
+
+  .revision {
+    margin-top:10px;
+  }
+  .revision-name {
+    width:100%;
+  }
+
+  .revisions-clear {
+    clear:both;
+    padding-top:10px;
+  }
+
+  }
+
+  #revision-selector {
+    display: inline;
+    width: 70%;
+
+    select#mySelect {
+        border: 1px solid #a9a9a9;
+        border-radius: 3px;
+        float:right;
+        height: 30px;
+        width: 70%;
+  }
+
+}
+body.register-page {
+
+nav {
+  display:none;
+}
+
+#reg-page {
+  background: $color-blue;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#42566f+0,2b496d+100 */
+  background: #42566f; /* Old browsers */
+  background: -moz-linear-gradient(top, #42566f 0%, #2b496d 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #42566f 0%,#2b496d 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #42566f 0%,#2b496d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42566f', endColorstr='#2b496d',GradientType=0 ); /* IE6-9 */
+
+  min-height:700px;
+
+  
+  padding: 100px 0;
+
+  .register-form {
+      width: 70%;
+      margin: 0 auto;
+      background: #FFF;
+      font-size:15px;
+
+      .register-inline {
+        display:inline
+      }
+
+      .form-control {
+        width:60%; 
+        font-size:15px;
+      }
+
+      .reg-btn {
+          width: 50%;
+          margin: 15px auto;
+          font-size:15px;
+      }
+
+      .register-msg {
+          padding-top: 25px;
+          color: #CCC;
+
+          p.msg {
+            line-height: 0;
+            font-style: italic;
+          }
+      }
+  }
+}
+}
+
+.tags-form {
+  .form-group{
+    .form-control {
+        width:65%;
+    }
+    .tags-fields{
+        float: right;
+        width: 70%;
+        display: inline;
+      .contact-select{
+        width:40%;
+        float:none;
+        vertical-align:middle;
+        
+      }
+      .contact-input {
+        width:53%;
+        float:none;
+        vertical-align:middle;
+      }
+    }
+
+    .tags-input {
+        display:inline;
+
+        input {
+          display:inline;
+          width:95%;
+        }
+    }   
+      .remove-tag {
+        text-align: right;
+        line-height: 2;
+        width: 5%;
+        float:right;
+        cursor: pointer;
+        display:inline;
+        color: #fb0200;
+        float:right;
+        
+        }
+        }
+        
+  }
+.add-tags-form {
+    
+    span {
+      cursor:pointer;
+      width:70%;
+      padding-left:5%;
+    }
+    .add-tag {
+      color:#3097d1;
+      line-height: 2.5;
+    }
+}
+
+.my-data-heading {
+    text-align:center;
+    h1{
+      display:inline;
+      font-weight: bolder;
+    }
+    img {
+      display:inline;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:991px){
+    .main {
+      width:100% !important;
+    }
+    form > .fld-link {
+      width: 48% !important;
+    }
+}
+@media screen and (max-width:767px){
+    .btn-modal-feedback {
+      display:none;
+    }
+    .help {
+      display:none !important;
+    }
+    .admin-tools {
+      display:none !important;
+    }
+    .sidebar{
+      display:none !important;
+    }
+    #navbar {
+      background:#FFF !important;
+    }
+
+    form > .fld-link {
+      width: 48% !important;
+    }
+    
+    .tags-fields {
+      width:100% !important;
+
+      .contact-select{
+        width:95% !important;
+        margin-bottom:5px;
+      }
+      .contact-input {
+        width:95% !important;
+      }
+    }
+    .form-control {
+        width:100% !important;
+        font-size:15px;
+        padding:17px;
+        font-size:15px; 
+      }
+      .tags-input-field{
+        width:95% !important;
+      }
+      .control-label label {
+        width:100% !important;
+      }
+      .main {
+        width:100% !important;
+        padding: 0 !important;
+      }
+      .html-builder-results {
+      padding:0 !important;
+      }
+      form {
+        padding:24px 20px;
+      }
+      .section-heading{
+      h1 {
+        font-size: 25px;
+      }
+    }
+    .navbar-toggle {
+      background-color: #42566f !important;
+
+      .icon-bar {
+        background-color: #FFF !important;
+      }
+    }
+    #mySelect {
+      width:100% !important;
+      margin-bottom:10px;
+    }
+    #open-in-screen-builder {
+      display:none;
+    }
+
+    .register-form {
+      width:100% !important;
+
+      .form-group{
+        margin:0 !important;
+      }
+    }
+    }
+@media screen and (max-width: 480px){
+  form > .fld-link {
+      width: 100% !important;
+    }
+    .html-builder-results {
+      padding:0 !important;
+    }
+    
+}

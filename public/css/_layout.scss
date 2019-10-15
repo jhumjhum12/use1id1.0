@@ -1,0 +1,226 @@
+.table td {
+  word-break: break-word;
+}
+
+#page {
+  display: block;
+  width: 100%;
+
+  .main {
+    min-height: 600px;
+    width: $screen-max-width;
+    background: #fff;
+    margin: 32px auto 64px auto;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    .breadcrumbs {
+      height: 30px;
+        ol.breadcrumb {
+          padding: 4px 12px;
+          background: $color-blue;
+          color: #fff;
+          background: $color-blue;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          margin-bottom: 0;
+          font-size: 13px;
+          color: #fff;
+        }
+        ol.breadcrumb > li + li::before {
+          color: #fff;
+          opacity: 0.5;
+          content: "> ";
+        }
+    }
+    .tab-nav {
+
+      .parent-submenu {
+        ul {
+          list-style: none;
+          float: left;
+          border-bottom: solid 1px $color-divider;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+          li {
+            float: left;
+            a {
+              padding: 6px 12px;
+              font-size: 15px;
+              display: inline-block;
+              border-right: solid 1px $color-divider;
+              &.active {
+                background: $color-divider;
+              }
+            }
+          }
+        }
+      } 
+    }
+    .heading {
+      clear: both;
+      padding: 12px 12px;
+      h1 {
+        margin: 0;
+        display: block;
+        font-weight: bolder;
+      }
+    }
+    .notifications {
+      padding: 4px 12px;
+      border-bottom: solid 1px $color-divider;
+    }
+    .content {
+      padding: 4px 12px;
+    }
+  }
+
+  .sidebar {
+    display:none;
+    background: $color-gray;
+    float: right;
+    width: 25%;
+    color: #fff;
+    p {
+      padding: 12px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+}
+
+
+.page {
+
+//  padding-top: 60px;
+  
+  
+
+
+  .main {
+    padding: 20px 40px;
+    width: 100%;
+    max-width: $screen-max-width;
+    margin: 0 auto;
+
+
+    .html-builder {
+
+      background: #fff;
+      padding-bottom: 48px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+
+
+      .html-builder-results {
+        padding: 0 20px;
+
+        .section-heading {
+          padding-top: 24px;
+          padding-bottom: 8px;
+          h1 {
+            margin: 0;
+            font-weight: 900;
+          }
+          small {
+            color: $color-text-secondary;
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}
+.langs {
+    margin-right:10px;
+    ul{
+      list-style:none;
+      li {
+         float:left;
+         padding: 5px;
+
+         a{
+          padding-left: 5px;
+
+          span {
+              -webkit-box-sizing: content-box;
+              height: 40px;
+              line-height: 40px;
+              }
+          
+         }
+         a.active {
+          font-weight:bold;
+         }
+
+
+
+      }li:not(:first-child):before {
+              content: " | ";
+          }
+    }
+
+  }
+
+  nav.navbar-fixed-top {
+    position: relative;
+  }
+  /* Revision textarea items removed */
+  .mce-menubar .mce-menubtn {
+    display:none;
+  }
+  .mce-path-item{
+    display:none !important;
+  }
+
+  .title-errors {
+    font-size: 50px;
+    text-align: center;
+    padding-top: 100px;
+  }
+
+
+  .help {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    height: 40px;
+    line-height: 40px;
+    
+    color: #3097D1;
+    cursor:pointer;
+    padding:5px 15px
+  }
+  .help:hover {
+        background-color: #eee;
+  }
+
+  .sidebar-show{
+    
+    display: inline-block !important;
+  }
+  .show-help {
+    display: inline-block;
+
+      .main{
+        display:inline-block;
+        margin-left: 5% !important;
+        margin-right: 5% !important;
+        width: 65% !important;
+      }
+    }
+  
+  .close-help{
+    display:none;
+  }
+
+  .label-required {
+    span {
+      color:#fb0101;
+    }
+  }

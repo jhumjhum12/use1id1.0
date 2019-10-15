@@ -1,0 +1,101 @@
+[30-Sep-2016 17:17:15 Europe/Belgrade] PHP Parse error:  syntax error, unexpected '.', expecting '&' or variable (T_VARIABLE) in /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 475
+[30-Sep-2016 17:20:13 Europe/Belgrade] PHP Parse error:  syntax error, unexpected '.', expecting '&' or variable (T_VARIABLE) in /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 475
+[12-Oct-2016 10:14:25 Europe/Belgrade] PHP Fatal error:  Uncaught exception 'ReflectionException' with message 'Class App\Http\Kernel does not exist' in /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Container/Container.php:749
+Stack trace:
+#0 /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Container/Container.php(749): ReflectionClass->__construct('App\\Http\\Kernel')
+#1 /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Container/Container.php(644): Illuminate\Container\Container->build('App\\Http\\Kernel', Array)
+#2 /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(709): Illuminate\Container\Container->make('App\\Http\\Kernel', Array)
+#3 /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Container/Container.php(231): Illuminate\Foundation\Application->make('App\\Http\\Kernel', Array)
+#4 /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Container/Container.php(74 in /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 749
+[12-Oct-2016 08:15:30 UTC] PHP Fatal error:  Class '\App\User' not found in /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Auth/EloquentUserProvider.php on line 130
+[12-Oct-2016 08:16:05 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ']' in /home/evelocit/public_html/clients/1id/app/ScreenBuilder/ScreenFields.php on line 144
+[12-Oct-2016 09:54:18 UTC] PHP Fatal error:  Class 'App\Redirect' not found in /home/evelocit/public_html/clients/1id/app/User.php on line 163
+[12-Oct-2016 12:25:28 UTC] PHP Fatal error:  Class 'App\Label' not found in /home/evelocit/public_html/clients/1id/app/ScreenBuilder/ScreenFields.php on line 40
+[12-Oct-2016 12:25:48 UTC] PHP Fatal error:  Class 'App\Label' not found in /home/evelocit/public_html/clients/1id/app/ScreenBuilder/ScreenFields.php on line 40
+[12-Oct-2016 12:26:10 UTC] PHP Fatal error:  Class 'App\Providers\AppServiceProvider' not found in /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php on line 146
+[12-Oct-2016 14:32:04 Europe/Belgrade] PHP Warning:  Unterminated comment starting line 38 in /home/evelocit/public_html/clients/1id/public/index.php on line 38
+[12-Oct-2016 12:46:49 UTC] PHP Fatal error:  Trait 'App\Http\Traits\ValidationTrait' not found in /home/evelocit/public_html/clients/1id/app/User.php on line 19
+[12-Oct-2016 12:46:55 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/722cd3bbbcbeb29660edb6b5e623dce5aa2bb36f.php on line 37
+[12-Oct-2016 12:46:58 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/722cd3bbbcbeb29660edb6b5e623dce5aa2bb36f.php on line 37
+[12-Oct-2016 12:47:12 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/722cd3bbbcbeb29660edb6b5e623dce5aa2bb36f.php on line 37
+[12-Oct-2016 12:47:14 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/722cd3bbbcbeb29660edb6b5e623dce5aa2bb36f.php on line 37
+[12-Oct-2016 12:47:16 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/722cd3bbbcbeb29660edb6b5e623dce5aa2bb36f.php on line 37
+[12-Oct-2016 12:55:58 UTC] PHP Fatal error:  Class 'App\Http\Traits\DB' not found in /home/evelocit/public_html/clients/1id/app/Http/Traits/ValidationTrait.php on line 114
+[17-Oct-2016 09:14:57 UTC] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php on line 146
+[17-Oct-2016 10:21:21 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 21856 bytes) in /home/evelocit/public_html/clients/1id/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 119
+[17-Oct-2016 10:32:49 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 21856 bytes) in /home/evelocit/public_html/clients/1id/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 119
+[17-Oct-2016 10:33:08 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 17984 bytes) in /home/evelocit/public_html/clients/1id/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 119
+[17-Oct-2016 10:39:35 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 21856 bytes) in /home/evelocit/public_html/clients/1id/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 119
+[17-Oct-2016 11:50:44 UTC] PHP Fatal error:  Class 'App\Models\Interests' not found in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ScreenBuilderController.php on line 281
+[17-Oct-2016 11:50:54 UTC] PHP Fatal error:  Class 'App\Models\Interests' not found in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ScreenBuilderController.php on line 281
+[17-Oct-2016 11:51:51 UTC] PHP Fatal error:  Cannot redeclare class App\Models\Interest in /home/evelocit/public_html/clients/1id/app/Models/Interests.php on line 14
+[17-Oct-2016 11:51:59 UTC] PHP Fatal error:  Cannot redeclare class App\Models\Interest in /home/evelocit/public_html/clients/1id/app/Models/Interests.php on line 14
+[17-Oct-2016 11:52:30 UTC] PHP Fatal error:  Cannot redeclare class App\Models\Interest in /home/evelocit/public_html/clients/1id/app/Models/Interests.php on line 14
+[17-Oct-2016 21:50:47 UTC] PHP Fatal error:  Call to a member function toArray() on array in /home/evelocit/public_html/clients/1id/app/ScreenBuilder/ScreenFields.php on line 284
+[17-Oct-2016 21:50:55 UTC] PHP Fatal error:  Call to a member function toArray() on array in /home/evelocit/public_html/clients/1id/app/ScreenBuilder/ScreenFields.php on line 284
+[18-Oct-2016 06:15:36 UTC] PHP Fatal error:  Call to a member function toArray() on array in /home/evelocit/public_html/clients/1id/app/ScreenBuilder/ScreenFields.php on line 284
+[18-Oct-2016 09:57:06 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/evelocit/public_html/clients/1id/app/User.php on line 140
+[18-Oct-2016 10:48:02 UTC] PHP Fatal error:  Call to a member function toArray() on array in /home/evelocit/public_html/clients/1id/app/ScreenBuilder/ScreenFields.php on line 284
+[18-Oct-2016 10:48:25 UTC] PHP Fatal error:  Call to a member function toArray() on array in /home/evelocit/public_html/clients/1id/app/ScreenBuilder/ScreenFields.php on line 284
+[18-Oct-2016 10:49:05 UTC] PHP Fatal error:  Call to a member function toArray() on array in /home/evelocit/public_html/clients/1id/app/ScreenBuilder/ScreenFields.php on line 284
+[18-Oct-2016 12:24:37 UTC] PHP Fatal error:  Trait 'Illuminate\Validation\ValidatesWhenResolvedTrait' not found in /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Foundation/Http/FormRequest.php on line 19
+[19-Oct-2016 07:31:43 UTC] PHP Fatal error:  Class 'App\Models\LanguagesList' not found in /home/evelocit/public_html/clients/1id/app/Models/SpokenLanguage.php on line 26
+[19-Oct-2016 07:31:47 UTC] PHP Fatal error:  Class 'App\Models\LanguagesList' not found in /home/evelocit/public_html/clients/1id/app/Models/SpokenLanguage.php on line 26
+[19-Oct-2016 07:31:53 UTC] PHP Fatal error:  Class 'App\Models\LanguagesList' not found in /home/evelocit/public_html/clients/1id/app/Models/SpokenLanguage.php on line 26
+[19-Oct-2016 07:32:00 UTC] PHP Fatal error:  Class 'App\Models\LanguagesList' not found in /home/evelocit/public_html/clients/1id/app/Models/SpokenLanguage.php on line 26
+[19-Oct-2016 09:59:15 UTC] PHP Parse error:  syntax error, unexpected ''*'])' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/HasOneOrMany.php on line 250
+[20-Oct-2016 15:00:20 UTC] PHP Fatal error:  Class '\App\User' not found in /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Auth/EloquentUserProvider.php on line 130
+[20-Oct-2016 15:01:55 UTC] PHP Fatal error:  Class 'App\LanguagesList' not found in /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php on line 723
+[21-Oct-2016 10:59:51 UTC] PHP Fatal error:  Trait 'App\Http\Traits\ValidationTrait' not found in /home/evelocit/public_html/clients/1id/app/User.php on line 24
+[21-Oct-2016 11:12:57 UTC] PHP Parse error:  syntax error, unexpected 'createFromFormat' (T_STRING), expecting variable (T_VARIABLE) or '$' in /home/evelocit/public_html/clients/1id/app/Http/Traits/ValidationTrait.php on line 100
+[21-Oct-2016 11:12:59 UTC] PHP Parse error:  syntax error, unexpected 'createFromFormat' (T_STRING), expecting variable (T_VARIABLE) or '$' in /home/evelocit/public_html/clients/1id/app/Http/Traits/ValidationTrait.php on line 100
+[21-Oct-2016 15:11:39 Europe/Belgrade] PHP Fatal error:  Uncaught exception 'ReflectionException' with message 'Class App\Http\Kernel does not exist' in /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Container/Container.php:749
+Stack trace:
+#0 /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Container/Container.php(749): ReflectionClass->__construct('App\\Http\\Kernel')
+#1 /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Container/Container.php(644): Illuminate\Container\Container->build('App\\Http\\Kernel', Array)
+#2 /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(709): Illuminate\Container\Container->make('App\\Http\\Kernel', Array)
+#3 /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Container/Container.php(231): Illuminate\Foundation\Application->make('App\\Http\\Kernel', Array)
+#4 /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Container/Container.php(74 in /home/evelocit/public_html/clients/1id/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 749
+[21-Oct-2016 13:11:39 UTC] PHP Fatal error:  Class 'App\Models\Company' not found in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ScreenBuilderController.php on line 286
+[21-Oct-2016 15:02:26 UTC] PHP Fatal error:  Call to undefined method Krucas\Notification\Notification::success() in /home/evelocit/public_html/clients/1id/app/Http/Traits/ValidationTrait.php on line 225
+[21-Oct-2016 15:02:55 UTC] PHP Fatal error:  Call to undefined method Krucas\Notification\Notification::success() in /home/evelocit/public_html/clients/1id/app/Http/Traits/ValidationTrait.php on line 225
+[21-Oct-2016 15:34:05 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/evelocit/public_html/clients/1id/storage/framework/views/90fdd8c8172f1740f4b57f9cbff1837159bc756e.php on line 17
+[21-Oct-2016 15:34:18 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/evelocit/public_html/clients/1id/storage/framework/views/90fdd8c8172f1740f4b57f9cbff1837159bc756e.php on line 17
+[21-Oct-2016 15:34:30 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/evelocit/public_html/clients/1id/storage/framework/views/90fdd8c8172f1740f4b57f9cbff1837159bc756e.php on line 17
+[21-Oct-2016 15:34:32 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/evelocit/public_html/clients/1id/storage/framework/views/90fdd8c8172f1740f4b57f9cbff1837159bc756e.php on line 17
+[21-Oct-2016 15:34:34 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/evelocit/public_html/clients/1id/storage/framework/views/90fdd8c8172f1740f4b57f9cbff1837159bc756e.php on line 17
+[24-Oct-2016 09:16:24 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/934118d53e1943486b09cd849892477d58ebe20a.php on line 37
+[24-Oct-2016 09:16:27 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/934118d53e1943486b09cd849892477d58ebe20a.php on line 37
+[24-Oct-2016 09:26:04 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/934118d53e1943486b09cd849892477d58ebe20a.php on line 37
+[24-Oct-2016 09:26:07 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/934118d53e1943486b09cd849892477d58ebe20a.php on line 37
+[24-Oct-2016 10:09:33 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/934118d53e1943486b09cd849892477d58ebe20a.php on line 37
+[24-Oct-2016 10:18:16 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/bd070a348d7d4b1c11e831b90745edb0c5b13dd8.php on line 22
+[24-Oct-2016 10:18:21 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/bd070a348d7d4b1c11e831b90745edb0c5b13dd8.php on line 22
+[24-Oct-2016 10:22:53 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/bd070a348d7d4b1c11e831b90745edb0c5b13dd8.php on line 22
+[24-Oct-2016 10:25:58 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/934118d53e1943486b09cd849892477d58ebe20a.php on line 37
+[24-Oct-2016 10:30:15 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/bd070a348d7d4b1c11e831b90745edb0c5b13dd8.php on line 12
+[24-Oct-2016 10:30:33 UTC] PHP Fatal error:  Class 'Label' not found in /home/evelocit/public_html/clients/1id/storage/framework/views/934118d53e1943486b09cd849892477d58ebe20a.php on line 37
+[24-Oct-2016 13:30:14 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 139
+[24-Oct-2016 13:30:33 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 139
+[24-Oct-2016 13:30:36 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 139
+[24-Oct-2016 13:33:03 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 139
+[24-Oct-2016 13:33:31 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 139
+[24-Oct-2016 13:33:39 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 139
+[24-Oct-2016 13:35:25 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 139
+[24-Oct-2016 13:35:27 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 139
+[24-Oct-2016 13:35:29 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:35:30 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:35:31 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:35:32 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:35:33 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:35:35 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:35:36 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:35:37 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:35:46 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:35:47 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:36:06 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:36:07 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:36:08 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:36:09 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:36:10 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140
+[24-Oct-2016 13:36:12 UTC] PHP Fatal error:  Call to a member function getShare() on boolean in /home/evelocit/public_html/clients/1id/app/Http/Controllers/ContactsController.php on line 140

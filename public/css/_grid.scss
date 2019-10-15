@@ -1,0 +1,41 @@
+.grid {
+
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 64px 0;
+
+  .grid-item {
+
+    border: solid 1px $color-divider;
+    width: 24%;
+    margin: 0.5%;
+    float: left;
+    height: 256px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+
+    h4 {
+      font-size: 14px;
+    }
+    p {
+      font-size: 11px;
+    }
+    .btn {
+      font-size: 11px;
+    }
+
+    .grid-buttons {
+      background: #f1f1f1;
+      position: absolute;
+      padding: 10px 0;
+      bottom: 0;
+      left: 0;
+      right: 0; 
+    }
+
+
+  }
+
+
+}
