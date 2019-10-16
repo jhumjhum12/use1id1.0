@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Translate;
 
+
 class ScreenNew extends Authenticatable
 {
 	const SCREEN_DRAFT = 0;

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
+use App\ConfLangInterfaceTexts;
 
 
 class ScreenBuilderControllerNew extends Controller
@@ -261,7 +262,7 @@ class ScreenBuilderControllerNew extends Controller
             if ($element->parent_id == $parentId) {
 				if($element->screen_id !=0){
 					
-					$this->screenStructure[] = ["id"=> $element->id ,"name"=> str_repeat(" - ", $level) . $element->url_suffix ];
+					$this->screenStructure[] = ["id"=> $element->id ,"name"=> str_repeat(" - ", $level) . $element->title ];
 					$children = $this->buildTree($elements, $element->screen_id, ($level+1));
 					 if ($children) {
                     $element->children = $children;
@@ -390,7 +391,12 @@ class ScreenBuilderControllerNew extends Controller
     {
         $output = [];
 
-        $data = ScreenNew::activeAndDrafts()->get();		
+        $data = ScreenNew::activeAndDrafts()->get();
+		foreach($data as $k=>$d) {
+            $d['title'] = ConfLangInterfaceTexts::get($d->screen_title);
+		}
+		//echo '<pre>';print_r($data);echo '</pre>';die();
+		
         $this->buildTree($data, 0);
 
         $output['allScreens'] = $this->screenStructure;
