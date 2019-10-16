@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 
 
-class ScreenBuilderController extends Controller
+class ScreenBuilderControllerNew extends Controller
 {
 
     var $screenStructure = [];
