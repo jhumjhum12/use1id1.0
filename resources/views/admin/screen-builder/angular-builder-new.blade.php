@@ -69,15 +69,15 @@
                 <table class="table table-very-compact">
                     <tr>
                         <td><label>ID</label></td>
-                        <td><input type="text" ng-model="activeFieldData.id" readonly disabled class="form-control" /></td>
+                        <td><input type="text" ng-model="activeFieldData.screenfield_id" readonly disabled class="form-control" /></td>
                     </tr>
                     <tr>
                         <td><label>Variable</label></td>
-                        <td><input type="text" ng-model="activeFieldData.name" class="form-control" /></td>
+                        <td><input type="text" ng-model="activeFieldData.field" class="form-control" /></td>
                     </tr>
                     <tr>
                         <td><label>Field Type</label></td>
-                        <td><input type="text" ng-model="activeFieldData.type" class="form-control" /></td>
+                        <td><input type="text" ng-model="activeFieldData.field_activity" class="form-control" /></td>
                     </tr>
                     <tr>
                         <td><label>Validation</label></td>

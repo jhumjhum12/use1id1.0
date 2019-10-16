@@ -367,7 +367,7 @@ class ScreenBuilderControllerNew extends Controller
             if(isset($parts[1])) $segmentData['action'] = $parts[1];
             $segmentData['fields'] = $segment->getSegmentFields(true);
             $segmentData['actions'] = $segment->getSegmentActions();
-            $rows = ScreenFieldsNew::where("segment_id", $segment->id)->orderBy('sort', 'asc')->get();
+            $rows = ScreenFieldsNew::where("segment_id", $segment->segment_id)->orderBy('sort', 'asc')->get();
             $segmentData['selectedFields'] = [];
             foreach($rows as $row)
             {
