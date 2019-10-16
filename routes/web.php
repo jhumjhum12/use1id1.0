@@ -77,6 +77,21 @@ Route::group(['prefix' => 'screenBuilder'], function () {
     Route::get('/schema', array('uses'=>'ScreenBuilderController@readAllTablesAndAllFields'));
 });
 
+// Admin tools: SCREEN BUILDER NEW
+
+Route::group(['prefix' => 'screenBuilderNew'], function () {
+    // Angular Stuff
+    Route::get('/angular/index/', array('as' => 'builder.angular.indexnew', 'uses'=>'ScreenBuilderControllerNew@getAngularView'));
+    Route::get('/angular/get/{id?}', array('as' => 'builder.angular.indexnew.get', 'uses'=>'ScreenBuilderControllerNew@getAngularData'));
+    Route::get('/angular/partial-get/{id?}', array('as' => 'builder.angular.partial.indexnew.get', 'uses'=>'ScreenBuilderControllerNew@getAngularDataPartial'));
+    Route::get('/angular/lang', array('as' => 'builder.angular.lang.getnew', 'uses'=>'ScreenBuilderControllerNew@getAngularTranslationData'));
+    Route::post('/angular/screen/update/{id?}', array('as'=>'builder.angular.screen.postnew', 'uses'=>'ScreenBuilderControllerNew@postScreen'));
+    Route::post('/angular/fields/update/{id?}', array('as'=>'builder.angular.fields.postnew', 'uses'=>'ScreenBuilderControllerNew@updateFields'));
+    Route::post('/update/screenSegment/{id?}', array('as' => 'builder.screen-segment.postnew', 'uses'=>'ScreenBuilderControllerNew@postScreenSegment'));
+    // Misc
+    Route::get('/schema', array('uses'=>'ScreenBuilderControllerNew@readAllTablesAndAllFields'));
+});
+
 
 // Members tools:
 

@@ -105,13 +105,13 @@ if(!isset($slug)) $slug = null;
                             </li>
                             @if(Auth::user()->isAdmin())
                                 <li>
-                                    <a href="{{ route('builder.angular.index') }}">
-                                        Admin: Screen Builder
+                                    <a href="{{ route('builder.angular.indexnew') }}">
+                                        Admin: Screen Builder New
                                     </a>
                                 </li>
 								<li>
                                     <a href="{{ route('builder.angular.index') }}">
-                                        Admin: Screen Builder Copy
+                                        Admin: Screen Builder
                                     </a>
                                 </li>
                                 <li>

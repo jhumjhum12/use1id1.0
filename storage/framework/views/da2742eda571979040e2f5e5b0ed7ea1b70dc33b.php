@@ -85,13 +85,13 @@
                                 </li>
                                 <?php if(Auth::user()->isAdmin()): ?>
                                     <li>
-                                        <a href="<?php echo e(route('builder.angular.index')); ?>">
-                                            Admin: Screen Builder
-                                        </a>
-                                    </li>
+										<a href="<?php echo e(route('builder.angular.indexnew')); ?>">
+											Admin: Screen Builder New
+										</a>
+									</li>
 									<li>
 										<a href="<?php echo e(route('builder.angular.index')); ?>">
-											Admin: Screen Builder Copy
+											Admin: Screen Builder
 										</a>
 									</li>
                                     <li>
