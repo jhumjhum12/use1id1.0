@@ -7,14 +7,15 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Translate;
 
-class Screen extends Authenticatable
+class ScreenNew extends Authenticatable
 {
 	const SCREEN_DRAFT = 0;
 	const SCREEN_ACTIVE = 1;
 	const SCREEN_DELETED = 2;
 
 //    protected $table = "CONF_SCR_SCREEN"; // DV0001	
-    protected $table = "screen";  // DV0001
+    //protected $table = "screen";  // DV0001
+	protected $table = "conf_scr_ui_screens";
     public $incrementing = false;
 
     static $slug = null;
@@ -64,12 +65,12 @@ class Screen extends Authenticatable
 
     public function scopeActiveAndDrafts($query)
     {
-        return $query->whereIn('status', [ self::SCREEN_DRAFT, self::SCREEN_ACTIVE ]);
+        return $query->whereIn('is_active', [ self::SCREEN_DRAFT, self::SCREEN_ACTIVE ]);
     }
 
     public function scopeActive($query)
     {
-        return $query->whereIn('status', [ self::SCREEN_ACTIVE ]);
+        return $query->whereIn('is_active', [ self::SCREEN_ACTIVE ]);
     }
 
 

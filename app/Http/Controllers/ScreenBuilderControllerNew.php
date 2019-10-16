@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\ScreenBuilder\HTMLBuilder as HTMLBuilder;
-use App\ScreenBuilder\Screen;
-use App\ScreenBuilder\ScreenFields;
-use App\ScreenBuilder\ScreenSegments;
+use App\ScreenBuilder\ScreenNew;
+use App\ScreenBuilder\ScreenFieldsNew;
+use App\ScreenBuilder\ScreenSegmentsNew;
 use App\Label;
 use App\User as User;
 use Illuminate\Support\Facades\DB;
@@ -252,21 +252,26 @@ class ScreenBuilderControllerNew extends Controller
 
     private function buildTree($elements, $parentId = 0, $level=0) {
         $branch = array();
-
+		
         foreach ($elements as $element) {
 
             if(!isset($element->level)) $element->level=0;
             else $element->level = $level;
 
-            if ($element->parent == $parentId) {
-                $this->screenStructure[] = ["id"=> $element->id ,"name"=> str_repeat(" - ", $level) . $element->name ];
-                $children = $this->buildTree($elements, $element->id, ($level+1));
-                if ($children) {
+            if ($element->parent_id == $parentId) {
+				if($element->screen_id !=0){
+					
+					$this->screenStructure[] = ["id"=> $element->id ,"name"=> str_repeat(" - ", $level) . $element->url_suffix ];
+					$children = $this->buildTree($elements, $element->screen_id, ($level+1));
+					 if ($children) {
                     $element->children = $children;
                 }
+				}
+               
                 $branch[] = $element;
             }
         }
+		
         return $branch;
     }
 
@@ -326,8 +331,9 @@ class ScreenBuilderControllerNew extends Controller
 
     public static function getAngularView()
     {
+		
         //$screen = Screen::where("id", $id)->firstOrFail();
-        return view('admin.screen-builder.angular-builder');
+        return view('admin.screen-builder.angular-builder-new');
         //    ->with('screen', $screen);
     }
 
@@ -384,11 +390,13 @@ class ScreenBuilderControllerNew extends Controller
     {
         $output = [];
 
-        $data = Screen::activeAndDrafts()->get();		
+        $data = ScreenNew::activeAndDrafts()->get();		
         $this->buildTree($data, 0);
 
         $output['allScreens'] = $this->screenStructure;
         $output['allModels'] = $this->getModels();
+		
+		
 
         header('Content-Type: application/json');
         echo json_encode($output);
