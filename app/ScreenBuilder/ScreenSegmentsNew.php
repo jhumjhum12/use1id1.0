@@ -6,11 +6,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Schema;
 
 
-class ScreenSegments extends Authenticatable
+class ScreenSegmentsNew extends Authenticatable
 {
 
 //    protected $table = "CONF_SCR_SCREEN_SEGMENTS"; // DV0001
-    protected $table = "screen_segments";  // DV0001
+    protected $table = "conf_scr_ui_screen_segments";  // DV0001
     public $incrementing = false;
     public $isEditMode = false;
 

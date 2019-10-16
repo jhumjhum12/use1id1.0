@@ -262,7 +262,7 @@ class ScreenBuilderControllerNew extends Controller
             if ($element->parent_id == $parentId) {
 				if($element->screen_id !=0){
 					
-					$this->screenStructure[] = ["id"=> $element->id ,"name"=> str_repeat(" - ", $level) . $element->title ];
+					$this->screenStructure[] = ["id"=> $element->screen_id ,"name"=> str_repeat(" - ", $level) . $element->title ];
 					$children = $this->buildTree($elements, $element->screen_id, ($level+1));
 					 if ($children) {
                     $element->children = $children;
@@ -346,20 +346,20 @@ class ScreenBuilderControllerNew extends Controller
     public function getAngularData($id)
     {		
         $output = [];
-        $output['screen'] = Screen::where("id", $id)->firstOrFail()->toArray();
-        $segments = ScreenSegments::where("screen_id", $id)->where("status", 1)->orderBy('sort', 'asc')->get();
+        $output['screen'] = ScreenNew::where("screen_id", $id)->firstOrFail()->toArray();
+        $segments = ScreenSegmentsNew::where("screen_id", $id)->where("status", 1)->orderBy('sort', 'asc')->get();
         $output['segments'] = [];
 
-        $data = Screen::activeAndDrafts()->get();
+        $data = ScreenNew::activeAndDrafts()->get();
         $this->buildTree($data, 0);
 
         $output['allScreens'] = $this->screenStructure;
         $output['allModels'] = $this->getModels();
         $output['allSegments'] = [];
         $output['allStatuses'] = [
-            Screen::SCREEN_DRAFT => 'Draft',
-            Screen::SCREEN_ACTIVE => 'Active',
-            Screen::SCREEN_DELETED => 'Deleted'];
+            ScreenNew::SCREEN_DRAFT => 'Draft',
+            ScreenNew::SCREEN_ACTIVE => 'Active',
+            ScreenNew::SCREEN_DELETED => 'Deleted'];
 
         foreach($segments as $segment) {
             $segmentData = $segment->toArray();
@@ -367,7 +367,7 @@ class ScreenBuilderControllerNew extends Controller
             if(isset($parts[1])) $segmentData['action'] = $parts[1];
             $segmentData['fields'] = $segment->getSegmentFields(true);
             $segmentData['actions'] = $segment->getSegmentActions();
-            $rows = ScreenFields::where("screen_segment_id", $segment->id)->orderBy('sort', 'asc')->get();
+            $rows = ScreenFieldsNew::where("segment_id", $segment->id)->orderBy('sort', 'asc')->get();
             $segmentData['selectedFields'] = [];
             foreach($rows as $row)
             {

@@ -54,7 +54,7 @@
             @include('admin.screen-builder.partials.angular-builder-screens-editor')
             @include('admin.screen-builder.partials.angular-builder-screen-editor')
             @include('admin.screen-builder.partials.angular-builder-segment-editor')
-            @include('admin.screen-builder.partials.angular-builder-fields-editor')
+            @include('admin.screen-builder.partials.angular-builder-fields-editor-new')
 
             <div class="spacing"></div>
         </div>
@@ -145,7 +145,7 @@
 
     <script>
         screen = "";
-        screenDataUrl = "{{ route('builder.angular.index.get') }}";
+        screenDataUrl = "{{ route('builder.angular.indexnew.get') }}";
         screensUrl = "{{ route('builder.angular.partial.indexnew.get') }}";
         saveScreenUrl = "{{ route('builder.angular.screen.post') }}";
         saveSegmentUrl = "{{ route('builder.screen-segment.post') }}";

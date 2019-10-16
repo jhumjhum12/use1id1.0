@@ -20,6 +20,7 @@ app.controller('myCtrl', function($scope, $http, $filter) {
 
     $scope.changeScreen = function(i)
     {
+		
         screen = i;
         window.location.hash = i;
         $scope.initCount = 0;

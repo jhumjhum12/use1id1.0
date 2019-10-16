@@ -12,11 +12,11 @@ use App\Label;
 use Illuminate\Support\Facades\View;
 
 
-class ScreenFields extends Authenticatable
+class ScreenFieldsNew extends Authenticatable
 {
 
 //    protected $table = "CONF_SCR_SCREEN_FIELDS"; // DV0001
-    protected $table = "screen_fields";  // DV0001
+    protected $table = "conf_scr_ui_screen_fields";  // DV0001
 
     protected $metaFields = null;
 
