@@ -52,7 +52,7 @@
             <?php echo $__env->make('admin.screen-builder.partials.angular-builder-screens-editor', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->make('admin.screen-builder.partials.angular-builder-screen-editor', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->make('admin.screen-builder.partials.angular-builder-segment-editor', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-            <?php echo $__env->make('admin.screen-builder.partials.angular-builder-fields-editor', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('admin.screen-builder.partials.angular-builder-fields-editor-new', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
             <div class="spacing"></div>
         </div>
@@ -143,7 +143,7 @@
 
     <script>
         screen = "";
-        screenDataUrl = "<?php echo e(route('builder.angular.index.get')); ?>";
+        screenDataUrl = "<?php echo e(route('builder.angular.indexnew.get')); ?>";
         screensUrl = "<?php echo e(route('builder.angular.partial.indexnew.get')); ?>";
         saveScreenUrl = "<?php echo e(route('builder.angular.screen.post')); ?>";
         saveSegmentUrl = "<?php echo e(route('builder.screen-segment.post')); ?>";
