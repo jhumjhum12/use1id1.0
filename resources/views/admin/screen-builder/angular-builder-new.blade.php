@@ -149,7 +149,7 @@
         screensUrl = "{{ route('builder.angular.partial.indexnew.get') }}";
         saveScreenUrl = "{{ route('builder.angular.screen.post') }}";
         saveSegmentUrl = "{{ route('builder.screen-segment.post') }}";
-        saveFieldsUrl = "{{ route('builder.angular.fields.post') }}";
+        saveFieldsUrl = "{{ route('builder.angular.fields.postnew') }}";
         populateLabelsUrl = "{{ route('builder.angular.lang.get') }}";
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>

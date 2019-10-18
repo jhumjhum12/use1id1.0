@@ -147,7 +147,7 @@
         screensUrl = "<?php echo e(route('builder.angular.partial.indexnew.get')); ?>";
         saveScreenUrl = "<?php echo e(route('builder.angular.screen.post')); ?>";
         saveSegmentUrl = "<?php echo e(route('builder.screen-segment.post')); ?>";
-        saveFieldsUrl = "<?php echo e(route('builder.angular.fields.post')); ?>";
+        saveFieldsUrl = "<?php echo e(route('builder.angular.fields.postnew')); ?>";
         populateLabelsUrl = "<?php echo e(route('builder.angular.lang.get')); ?>";
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
