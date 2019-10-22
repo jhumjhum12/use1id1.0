@@ -347,6 +347,7 @@ class ScreenBuilderControllerNew extends Controller
     {		
         $output = [];
         $output['screen'] = ScreenNew::where("screen_id", $id)->firstOrFail()->toArray();
+		$output['title']=ConfLangInterfaceTexts::get($output['screen']['screen_title']);
         $segments = ScreenSegmentsNew::where("screen_id", $id)->where("status", 1)->orderBy('sort', 'asc')->get();
         $output['segments'] = [];
 
