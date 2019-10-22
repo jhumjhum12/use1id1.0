@@ -237,6 +237,23 @@ app.controller('myCtrl', function($scope, $http, $filter) {
     };
 
 
+
+		$scope.updateFields1 = function()
+			{
+				$scope.loading=true;
+				$http({
+					method: 'POST',
+					data: $scope.data.segments[$scope.selectedSegmentId].selectedFields,
+					url: saveFieldsUrl + "/" + $scope.data.segments[$scope.selectedSegmentId].segment_id + "?noredirect=1"
+				}).then(function successCallback(response) {
+					$scope.init();
+				}, function errorCallback(response) {
+					alert("Something went wrong  (" + response.status + ": " + response.statusText + ")");
+					$scope.loading=false;
+				});
+			};
+
+
     // GET Label definitions from the server
 
     $scope.populateLabels = function(i)

@@ -201,27 +201,27 @@ class ScreenBuilderControllerNew extends Controller
      */
 
     public function postScreenFields($segment_id, $inputOverride=[])
-    {
+    {		
         $input = Input::all();
         if(!empty($inputOverride)) {
             $input = $inputOverride;
         }
         $meta = [];
-        $screenSegment = ScreenSegments::where("id", $segment_id)->firstOrFail();
+        $screenSegment = ScreenSegmentsNew::where("segment_id", $segment_id)->firstOrFail();
 
         if(!empty($input['id'])) {
-            $field = ScreenFields::where('id', $input['id'])->firstOrFail();
+            $field = ScreenFieldsNew::where('screenfield_id', $input['id'])->firstOrFail();
         } else {
-            $field = new ScreenFields();
-            $field->id = uniqid();
+            $field = new ScreenFieldsNew();
+            $field->screenfield_id = uniqid();
         }
 
-        $field->screen_segment_id = $screenSegment->id;
-        $field->type = !empty($input['type']) ? $input['type'] : "text";
-        $field->label = !empty($input['label']) ? $input['label'] : "";
-        $field->name = !empty($input['name']) ? $input['name'] : "";
+        $field->segment_id = $screenSegment->segment_id;
+        $field->field_activity = !empty($input['field_activity']) ? $input['field_activity'] : "text";
+        //$field->label = !empty($input['label']) ? $input['label'] : "";
+        $field->field = !empty($input['field']) ? $input['field'] : "";
         $field->action = !empty($input['action']) ? $input['action'] : "";
-        foreach(ScreenFields::metaFields() as $m) {
+        foreach(ScreenFieldsNew::metaFields() as $m) {
             if(isset($input[$m])) $meta[$m] = $input[$m];
         }
         $field->meta = json_encode($meta);
@@ -233,7 +233,7 @@ class ScreenBuilderControllerNew extends Controller
         if(isset($_GET['noredirect'])) exit();
 
         return redirect()->action(
-            'ScreenBuilderController@getScreenFields', ['sid' => $screenSegment->id]
+            'ScreenBuilderControllerNew@getScreenFields', ['sid' => $screenSegment->segment_id]
         );
     }
 
@@ -347,10 +347,14 @@ class ScreenBuilderControllerNew extends Controller
     {		
         $output = [];
         $output['screen'] = ScreenNew::where("screen_id", $id)->firstOrFail()->toArray();
+		$output['title']=ConfLangInterfaceTexts::get($output['screen']['screen_title']);
         $segments = ScreenSegmentsNew::where("screen_id", $id)->where("status", 1)->orderBy('sort', 'asc')->get();
         $output['segments'] = [];
 
         $data = ScreenNew::activeAndDrafts()->get();
+		foreach($data as $k=>$d) {
+            $d['title'] = ConfLangInterfaceTexts::get($d->screen_title);
+		}
         $this->buildTree($data, 0);
 
         $output['allScreens'] = $this->screenStructure;
@@ -431,10 +435,10 @@ class ScreenBuilderControllerNew extends Controller
 
 
     public function updateFields($segment_id)
-    {
+    {		
         $postdata = file_get_contents("php://input");
         $request = json_decode($postdata, true);
-        ScreenFields::where("screen_segment_id", $segment_id)->delete();
+        ScreenFieldsNew::where("segment_id", $segment_id)->delete();
         foreach($request as $field)
         {
             unset($field['id']);

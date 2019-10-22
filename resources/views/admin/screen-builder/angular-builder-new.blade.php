@@ -6,11 +6,11 @@
 
         <div class="f f1" ng-show="view!='screens'">
 
-            <h4>{% data.screen.name %}</h4>
-            <small>{% data.screen.slug %}</small>
+            <h4>{% data.title %}</h4>
+            <small>{% data.screen.url_suffix %}</small>
 
             <div class="btn-group btn-group-xs" role="group">
-                <a class="btn btn-default" target="_blank" href="{{ getenv('APP_URL') }}{% data.screen.slug %}">View</a>
+                <a class="btn btn-default" target="_blank" href="{{ getenv('APP_URL') }}{% data.screen.url_suffix %}">View</a>
                 <a class="btn btn-default" ng-click="view='screen'" href>Edit</a>
                 <a class="btn btn-default" ng-click="changeScreen()" href>Select Other</a>
             </div>
@@ -53,7 +53,7 @@
 
             @include('admin.screen-builder.partials.angular-builder-screens-editor')
             @include('admin.screen-builder.partials.angular-builder-screen-editor')
-            @include('admin.screen-builder.partials.angular-builder-segment-editor')
+            @include('admin.screen-builder.partials.angular-builder-segment-editor-new')
             @include('admin.screen-builder.partials.angular-builder-fields-editor-new')
 
             <div class="spacing"></div>
@@ -149,7 +149,7 @@
         screensUrl = "{{ route('builder.angular.partial.indexnew.get') }}";
         saveScreenUrl = "{{ route('builder.angular.screen.post') }}";
         saveSegmentUrl = "{{ route('builder.screen-segment.post') }}";
-        saveFieldsUrl = "{{ route('builder.angular.fields.post') }}";
+        saveFieldsUrl = "{{ route('builder.angular.fields.postnew') }}";
         populateLabelsUrl = "{{ route('builder.angular.lang.get') }}";
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>

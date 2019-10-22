@@ -4,11 +4,11 @@
 
         <div class="f f1" ng-show="view!='screens'">
 
-            <h4>{% data.screen.name %}</h4>
-            <small>{% data.screen.slug %}</small>
+            <h4>{% data.title %}</h4>
+            <small>{% data.screen.url_suffix %}</small>
 
             <div class="btn-group btn-group-xs" role="group">
-                <a class="btn btn-default" target="_blank" href="<?php echo e(getenv('APP_URL')); ?>{% data.screen.slug %}">View</a>
+                <a class="btn btn-default" target="_blank" href="<?php echo e(getenv('APP_URL')); ?>{% data.screen.url_suffix %}">View</a>
                 <a class="btn btn-default" ng-click="view='screen'" href>Edit</a>
                 <a class="btn btn-default" ng-click="changeScreen()" href>Select Other</a>
             </div>
@@ -51,7 +51,7 @@
 
             <?php echo $__env->make('admin.screen-builder.partials.angular-builder-screens-editor', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->make('admin.screen-builder.partials.angular-builder-screen-editor', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-            <?php echo $__env->make('admin.screen-builder.partials.angular-builder-segment-editor', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('admin.screen-builder.partials.angular-builder-segment-editor-new', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->make('admin.screen-builder.partials.angular-builder-fields-editor-new', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
             <div class="spacing"></div>
@@ -147,7 +147,7 @@
         screensUrl = "<?php echo e(route('builder.angular.partial.indexnew.get')); ?>";
         saveScreenUrl = "<?php echo e(route('builder.angular.screen.post')); ?>";
         saveSegmentUrl = "<?php echo e(route('builder.screen-segment.post')); ?>";
-        saveFieldsUrl = "<?php echo e(route('builder.angular.fields.post')); ?>";
+        saveFieldsUrl = "<?php echo e(route('builder.angular.fields.postnew')); ?>";
         populateLabelsUrl = "<?php echo e(route('builder.angular.lang.get')); ?>";
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
