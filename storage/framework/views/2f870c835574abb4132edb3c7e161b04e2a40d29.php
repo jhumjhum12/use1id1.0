@@ -145,7 +145,7 @@
         screen = "";
         screenDataUrl = "<?php echo e(route('builder.angular.indexnew.get')); ?>";
         screensUrl = "<?php echo e(route('builder.angular.partial.indexnew.get')); ?>";
-        saveScreenUrl = "<?php echo e(route('builder.angular.screen.post')); ?>";
+        saveScreenUrl = "<?php echo e(route('builder.angular.screen.postnew')); ?>";
         saveSegmentUrl = "<?php echo e(route('builder.screen-segment.postnew')); ?>";
         saveFieldsUrl = "<?php echo e(route('builder.angular.fields.postnew')); ?>";
         populateLabelsUrl = "<?php echo e(route('builder.angular.lang.get')); ?>";

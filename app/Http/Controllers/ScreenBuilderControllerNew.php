@@ -74,27 +74,31 @@ class ScreenBuilderControllerNew extends Controller
 
     public function postScreen($id)
     {
-        $buildSegment = false;
+		$buildSegment = false;
         if($id) {
-            $screen = ScreenNew::where("id", $id)->firstOrFail();
+            $screen = ScreenNew::where("screen_id", $id)->firstOrFail();
         } else {
             $screen = new ScreenNew();
-            $screen->id = uniqid();
+            $screen->screen_id = uniqid();
             $buildSegment = true;
         }
-        $screen->screen_title = !empty(Input::get('name')) ? Input::get('name') : "[Untitled]";
+		
+		
+        $screen->screen_title = !empty(Input::get('screen_title')) ? Input::get('screen_title') : "[Untitled]";
         //$screen->label = !empty(Input::get('label')) ? Input::get('label') : "";
-        $screen->url_suffix = Input::get('slug');
+        $screen->url_suffix = Input::get('url_suffix');
         $screen->template = !empty(Input::get('template')) ? Input::get('template') : "render-full-screen";
-        if(!empty(Input::get('parent'))) {
-            $screen->parent = Input::get('parent');
+		$parent = Input::get('parent_id');
+		$parentId = $parent['id'];
+        if(!empty($parentId)) {
+            $screen->parent_id = $parentId;
         };
         $screen->is_active = !empty(Input::get('is_active')) ? Input::get('is_active') : 1;
 
-        $screen->help_text = !empty(Input::get('help_label')) ? Input::get('help_label') : null;
-        $screen->video = !empty(Input::get('help_video_url')) ? Input::get('help_video_url') : null;
+        $screen->help_text = !empty(Input::get('help_text')) ? Input::get('help_text') : null;
+        $screen->video = !empty(Input::get('video')) ? Input::get('video') : null;
         //$screen->help_html = !empty(Input::get('help_html')) ? Input::get('help_html') : null;
-
+		
         $screen->save();
         if($buildSegment) {
             $screenSegment = new ScreenSegmentsNew();
