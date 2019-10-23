@@ -51,7 +51,7 @@
 
         <div class="f f2">
 
-            @include('admin.screen-builder.partials.angular-builder-screens-editor')
+            @include('admin.screen-builder.partials.angular-builder-screens-editor-new')
             @include('admin.screen-builder.partials.angular-builder-screen-editor-new')
             @include('admin.screen-builder.partials.angular-builder-segment-editor-new')
             @include('admin.screen-builder.partials.angular-builder-fields-editor-new')

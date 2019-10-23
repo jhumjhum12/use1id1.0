@@ -210,10 +210,10 @@ app.controller('myCtrl', function($scope, $http, $filter) {
             var payload = $scope.activeScreenData;
             var id = screen;
         }
-        if(typeof payload.parent !="undefined") {
-            payload.parent = payload.parent.id;
+        if(typeof payload.parent_id !="undefined") {
+            payload.parent_id = payload.parent_id.id;
         } else {
-            payload.parent = 0;
+            payload.parent_id = 0;
         }
 
         $scope.loading=true;

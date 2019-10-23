@@ -89,7 +89,7 @@ class ScreenBuilderControllerNew extends Controller
         $screen->url_suffix = Input::get('url_suffix');
         $screen->template = !empty(Input::get('template')) ? Input::get('template') : "render-full-screen";
 		$parent = Input::get('parent_id');
-		$parentId = $parent['id'];
+		$parentId = $parent;
         if(!empty($parentId)) {
             $screen->parent_id = $parentId;
         };
