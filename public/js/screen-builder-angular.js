@@ -146,6 +146,7 @@ app.controller('myCtrl', function($scope, $http, $filter) {
                    if(value.id==$scope.data.screen.parent) {
                        $scope.data.screen.parent = angular.copy(value);
                    }
+
                 });
                 //$scope.data.screen.parent = {"id": temp};
 

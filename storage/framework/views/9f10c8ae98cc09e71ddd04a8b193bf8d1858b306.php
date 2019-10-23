@@ -2,7 +2,7 @@
     <h4>Screen Editor</h4>
 
     <div class="form-group">
-        <label>Screen Name1</label>
+        <label>Screen Name</label>
         <input type="text" ng-model="activeScreenData.name" class="form-control" />
     </div>
     <div class="form-group">
