@@ -13,7 +13,7 @@
         </thead>
         <tbody id="items">
 
-        <tr     class="ng-class:field.type"
+        <tr     class="ng-class:field.field_activity"
                 data-id="{% field.id %}"
                 ng-repeat="field in data.segments[selectedSegmentId].selectedFields"
                 ng-class="(field.id==activeFieldData.id) ? 'active' : ''">
@@ -30,7 +30,7 @@
     <div ng-show="(data.segments[selectedSegmentId].selectedFields.length)==0">No Fields Defined</div>
 
     <div ng-show="data.segments[selectedSegmentId].selectedFields" class="form-group">
-        <button type="button" ng-click="updateFields()" class="btn btn-block btn-primary">SAVE FIELDS</button>
+        <button type="button" ng-click="updateFields1()" class="btn btn-block btn-primary">SAVE FIELDS</button>
     </div>
 
 </div>
