@@ -356,7 +356,7 @@ class ScreenBuilderControllerNew extends Controller
             $d['title'] = ConfLangInterfaceTexts::get($d->screen_title);
 		}
         $this->buildTree($data, 0);
-
+		
         $output['allScreens'] = $this->screenStructure;
         $output['allModels'] = $this->getModels();
         $output['allSegments'] = [];

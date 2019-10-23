@@ -143,7 +143,9 @@ app.controller('myCtrl', function($scope, $http, $filter) {
 
 
                 angular.forEach($scope.data.allScreens, function(value, key) {
-                   if(value.id==$scope.data.screen.parent) {
+                   if(value.id==$scope.data.screen.parent_id) {
+                       $scope.data.screen.parent_id = angular.copy(value);
+                   } else if(value.id==$scope.data.screen.parent) {
                        $scope.data.screen.parent = angular.copy(value);
                    }
 
