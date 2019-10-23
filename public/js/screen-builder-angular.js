@@ -150,7 +150,7 @@ app.controller('myCtrl', function($scope, $http, $filter) {
                 //$scope.data.screen.parent = {"id": temp};
 
 
-                $scope.activeScreenData = angular.copy(response.data.screen);
+                $scope.activeScreenData = angular.copy(response.data.screen);				
                 for (first in $scope.data.allSegments) break;
                 if (typeof first != "undefined" && $scope.initCount == 1) {
                     $scope.selectedSegmentId = first;
@@ -217,6 +217,30 @@ app.controller('myCtrl', function($scope, $http, $filter) {
             alert("Something went wrong  (" + response.status + ": " + response.statusText + ")");
         });
     };
+	
+	
+	
+	$scope.updateSegment1 = function()
+    {
+        $scope.loading=true;
+        var id = 0;
+        if($scope.activeSegmentData.id==0) {
+            id = 0;
+            $scope.activeSegmentData.screen_id = screen;
+        } else {
+            id = $scope.activeSegmentData.segment_id;
+        }
+        $http({
+            method: 'POST',
+            data: $scope.activeSegmentData,
+            url: saveSegmentUrl + "/" + id + "?noredirect=1"
+        }).then(function successCallback(response) {
+            $scope.init();
+        }, function errorCallback(response) {
+            $scope.loading=false;
+            alert("Something went wrong  (" + response.status + ": " + response.statusText + ")");
+        });
+    };
 
 
     // POST Sent out field data
@@ -238,20 +262,20 @@ app.controller('myCtrl', function($scope, $http, $filter) {
 
 
 
-		$scope.updateFields1 = function()
-			{
-				$scope.loading=true;
-				$http({
-					method: 'POST',
-					data: $scope.data.segments[$scope.selectedSegmentId].selectedFields,
-					url: saveFieldsUrl + "/" + $scope.data.segments[$scope.selectedSegmentId].segment_id + "?noredirect=1"
-				}).then(function successCallback(response) {
-					$scope.init();
-				}, function errorCallback(response) {
-					alert("Something went wrong  (" + response.status + ": " + response.statusText + ")");
-					$scope.loading=false;
-				});
-			};
+	$scope.updateFields1 = function()
+	{
+		$scope.loading=true;
+		$http({
+			method: 'POST',
+			data: $scope.data.segments[$scope.selectedSegmentId].selectedFields,
+			url: saveFieldsUrl + "/" + $scope.data.segments[$scope.selectedSegmentId].segment_id + "?noredirect=1"
+		}).then(function successCallback(response) {
+			$scope.init();
+		}, function errorCallback(response) {
+			alert("Something went wrong  (" + response.status + ": " + response.statusText + ")");
+			$scope.loading=false;
+		});
+	};
 
 
     // GET Label definitions from the server

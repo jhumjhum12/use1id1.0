@@ -50,7 +50,7 @@
         <div class="f f2">
 
             <?php echo $__env->make('admin.screen-builder.partials.angular-builder-screens-editor', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-            <?php echo $__env->make('admin.screen-builder.partials.angular-builder-screen-editor', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('admin.screen-builder.partials.angular-builder-screen-editor-new', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->make('admin.screen-builder.partials.angular-builder-segment-editor-new', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->make('admin.screen-builder.partials.angular-builder-fields-editor-new', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -87,7 +87,7 @@
                     <tr>
                         <td><label>Label</label></td>
                         <td>
-                            <select ng-model="activeFieldData.label"
+                            <select ng-model="activeFieldData.field"
                                     class="form-control input-sm "
                                     ng-options="value as value for (key , value) in labels"></select>
                         </td>
@@ -146,7 +146,7 @@
         screenDataUrl = "<?php echo e(route('builder.angular.indexnew.get')); ?>";
         screensUrl = "<?php echo e(route('builder.angular.partial.indexnew.get')); ?>";
         saveScreenUrl = "<?php echo e(route('builder.angular.screen.post')); ?>";
-        saveSegmentUrl = "<?php echo e(route('builder.screen-segment.post')); ?>";
+        saveSegmentUrl = "<?php echo e(route('builder.screen-segment.postnew')); ?>";
         saveFieldsUrl = "<?php echo e(route('builder.angular.fields.postnew')); ?>";
         populateLabelsUrl = "<?php echo e(route('builder.angular.lang.get')); ?>";
     </script>

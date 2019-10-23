@@ -3,7 +3,7 @@
 
     <div class="form-group">
         <label>Segment Name</label>
-        <input type="text" ng-model="activeSegmentData.name" class="form-control" />
+        <input type="text" ng-model="activeSegmentData.segment_title" class="form-control" />
     </div>
     <div class="form-group">
         <label>Data Model</label>
@@ -30,7 +30,7 @@
         <input type="text" ng-model="activeScreenData.sort"  class="form-control" />
     </div>
     <div class="form-group">
-        <button class="btn btn-success btn-block" ng-click="updateSegment()">Update</button>
+        <button class="btn btn-success btn-block" ng-click="updateSegment1()">Update</button>
         <button class="btn btn-default btn-block" ng-click="view='fields'">Close</button>
     </div>
 </div>

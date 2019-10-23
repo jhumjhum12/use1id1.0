@@ -52,7 +52,7 @@
         <div class="f f2">
 
             @include('admin.screen-builder.partials.angular-builder-screens-editor')
-            @include('admin.screen-builder.partials.angular-builder-screen-editor')
+            @include('admin.screen-builder.partials.angular-builder-screen-editor-new')
             @include('admin.screen-builder.partials.angular-builder-segment-editor-new')
             @include('admin.screen-builder.partials.angular-builder-fields-editor-new')
 
@@ -89,7 +89,7 @@
                     <tr>
                         <td><label>Label</label></td>
                         <td>
-                            <select ng-model="activeFieldData.label"
+                            <select ng-model="activeFieldData.field"
                                     class="form-control input-sm "
                                     ng-options="value as value for (key , value) in labels"></select>
                         </td>
@@ -148,7 +148,7 @@
         screenDataUrl = "{{ route('builder.angular.indexnew.get') }}";
         screensUrl = "{{ route('builder.angular.partial.indexnew.get') }}";
         saveScreenUrl = "{{ route('builder.angular.screen.post') }}";
-        saveSegmentUrl = "{{ route('builder.screen-segment.post') }}";
+        saveSegmentUrl = "{{ route('builder.screen-segment.postnew') }}";
         saveFieldsUrl = "{{ route('builder.angular.fields.postnew') }}";
         populateLabelsUrl = "{{ route('builder.angular.lang.get') }}";
     </script>

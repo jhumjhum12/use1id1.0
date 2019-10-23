@@ -118,16 +118,16 @@ class ScreenBuilderControllerNew extends Controller
      */
 
     public function postScreenSegment($id)
-    {		
+    {	
         if($id) {
-            $screenSegment = ScreenSegments::where("id", $id)->firstOrFail();
+            $screenSegment = ScreenSegmentsNew::where("segment_id", $id)->firstOrFail();
         } else {
-            $screenSegment = new ScreenSegments();
+            $screenSegment = new ScreenSegmentsNew();
             $screenSegment->id = uniqid();
             $screenSegment->screen_id = Input::get("screen_id");
         }
 
-        $screenSegment->name = !empty(Input::get('name')) ? Input::get('name') : "";
+        $screenSegment->segment_title = !empty(Input::get('name')) ? Input::get('name') : "";
         $screenSegment->model = !empty(Input::get('model')) ? Input::get('model') : "";
         $screenSegment->sort = !empty(Input::get('sort')) ? Input::get('sort') : 1;
         $screenSegment->status = !empty(Input::get('status')) ? Input::get('status') : 1;
