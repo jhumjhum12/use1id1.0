@@ -55,7 +55,7 @@
     </div>
 
     <div class="form-group">
-        <button class="btn btn-success btn-block" ng-click="updateScreen()">Update</button>
+        <button class="btn btn-success btn-block" ng-click="updateScreen1()">Update</button>
         <button class="btn btn-default btn-block" ng-click="view='fields'">Close</button>
     </div>
 </div>

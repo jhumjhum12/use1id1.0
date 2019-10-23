@@ -76,31 +76,31 @@ class ScreenBuilderControllerNew extends Controller
     {
         $buildSegment = false;
         if($id) {
-            $screen = Screen::where("id", $id)->firstOrFail();
+            $screen = ScreenNew::where("id", $id)->firstOrFail();
         } else {
-            $screen = new Screen();
+            $screen = new ScreenNew();
             $screen->id = uniqid();
             $buildSegment = true;
         }
-        $screen->name = !empty(Input::get('name')) ? Input::get('name') : "[Untitled]";
-        $screen->label = !empty(Input::get('label')) ? Input::get('label') : "";
-        $screen->slug = Input::get('slug');
+        $screen->screen_title = !empty(Input::get('name')) ? Input::get('name') : "[Untitled]";
+        //$screen->label = !empty(Input::get('label')) ? Input::get('label') : "";
+        $screen->url_suffix = Input::get('slug');
         $screen->template = !empty(Input::get('template')) ? Input::get('template') : "render-full-screen";
         if(!empty(Input::get('parent'))) {
             $screen->parent = Input::get('parent');
         };
-        $screen->status = !empty(Input::get('status')) ? Input::get('status') : 1;
+        $screen->is_active = !empty(Input::get('is_active')) ? Input::get('is_active') : 1;
 
-        $screen->help_label = !empty(Input::get('help_label')) ? Input::get('help_label') : null;
-        $screen->help_video_url = !empty(Input::get('help_video_url')) ? Input::get('help_video_url') : null;
-        $screen->help_html = !empty(Input::get('help_html')) ? Input::get('help_html') : null;
+        $screen->help_text = !empty(Input::get('help_label')) ? Input::get('help_label') : null;
+        $screen->video = !empty(Input::get('help_video_url')) ? Input::get('help_video_url') : null;
+        //$screen->help_html = !empty(Input::get('help_html')) ? Input::get('help_html') : null;
 
         $screen->save();
         if($buildSegment) {
-            $screenSegment = new ScreenSegments();
-            $screenSegment->id = uniqid();
-            $screenSegment->name = "Untitled Segment";
-            $screenSegment->screen_id = $screen->id;
+            $screenSegment = new ScreenSegmentsNew();
+            $screenSegment->segment_id = uniqid();
+            $screenSegment->segment_title = "Untitled Segment";
+            $screenSegment->screen_id = $screen->screen_id;
             $screenSegment->save();
         }
 

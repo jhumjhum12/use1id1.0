@@ -198,6 +198,37 @@ app.controller('myCtrl', function($scope, $http, $filter) {
             alert("Something went wrong  (" + response.status + ": " + response.statusText + ")");
         });
     };
+	
+	
+	
+	 $scope.updateScreen1 = function(i)
+    {
+        if(i==0) {
+            var payload = $scope.newScreen;
+            var id = 0;
+        } else {
+            var payload = $scope.activeScreenData;
+            var id = screen;
+        }
+        if(typeof payload.parent !="undefined") {
+            payload.parent = payload.parent.id;
+        } else {
+            payload.parent = 0;
+        }
+
+        $scope.loading=true;
+        $http({
+            method: 'POST',
+            data: payload,
+            url: saveScreenUrl + "/" + id + "?noredirect=1"
+        }).then(function successCallback(response) {
+            $scope.init();
+            // $scope.data = response.data;
+        }, function errorCallback(response) {
+            $scope.loading=false;
+            alert("Something went wrong  (" + response.status + ": " + response.statusText + ")");
+        });
+    };
 
     $scope.updateSegment = function()
     {

@@ -147,7 +147,7 @@
         screen = "";
         screenDataUrl = "{{ route('builder.angular.indexnew.get') }}";
         screensUrl = "{{ route('builder.angular.partial.indexnew.get') }}";
-        saveScreenUrl = "{{ route('builder.angular.screen.post') }}";
+        saveScreenUrl = "{{ route('builder.angular.screen.postnew') }}";
         saveSegmentUrl = "{{ route('builder.screen-segment.postnew') }}";
         saveFieldsUrl = "{{ route('builder.angular.fields.postnew') }}";
         populateLabelsUrl = "{{ route('builder.angular.lang.get') }}";
