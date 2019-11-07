@@ -1,6 +1,6 @@
 <?php
 if(!isset($slug)) $slug = null;
-\App\ScreenBuilder\Screen::init($slug);
+\App\ScreenBuilder\ScreenNew::init($slug);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>

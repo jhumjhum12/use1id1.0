@@ -35,7 +35,7 @@ class RequestResolver extends Controller
      */
     public function index(Request $request, $slug="")
     {
-
+		
         $this->setLanguage();
 
         // Scenario #1: POST REQUEST
@@ -47,7 +47,7 @@ class RequestResolver extends Controller
                 exit("Method not defined");
             }
 
-         $function = $request->get('function');
+        $function = $request->get('function');
 			
             $payload = $request->except(['function']);
 
@@ -55,7 +55,7 @@ class RequestResolver extends Controller
             $function = $explode[1];
 
            $segment = ScreenSegmentsNew::where("id", $explode[0])->first();
-		   
+		  
           $class = ($segment) ? $segment->getModel() : false;
 
 
@@ -99,7 +99,7 @@ class RequestResolver extends Controller
             $screen = ScreenNew::where("url_suffix", $slug)
 					->where('is_active', '!=', ScreenNew::SCREEN_DELETED)
 					->firstOrFail();
-
+			
 			if (!$screen || $screen->is_active == ScreenNew::SCREEN_DRAFT
 					&& $accessLevel != \App\User::USER_ADMIN) {
 				// screen in draft & user not admin, return 404
