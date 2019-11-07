@@ -127,7 +127,7 @@ class ScreenBuilderControllerNew extends Controller
             $screenSegment = ScreenSegmentsNew::where("segment_id", $id)->firstOrFail();
         } else {
             $screenSegment = new ScreenSegmentsNew();
-            $screenSegment->id = uniqid();
+            $screenSegment->segment_id = uniqid();
             $screenSegment->screen_id = Input::get("screen_id");
         }
 

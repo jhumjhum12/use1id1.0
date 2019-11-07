@@ -343,40 +343,41 @@ class TranslatorController extends Controller
 
 		$i = 1;
 
-		foreach($labels as $label) {
+		
+			foreach($labels as $label) {
 
-			foreach($langs_available as $l) {
+				foreach($langs_available as $l) {
 
-				echo $i++ . " lang=" . $l . ", key=" . $label->key . " ";
+					echo $i++ . " lang=" . $l . ", key=" . $label->key . " ";
 
-				$currentTranslation = DB::table('labels')->where('lang', $l)->where('key', $label->key)->first();
+					$currentTranslation = DB::table('labels')->where('lang', $l)->where('key', $label->key)->first();
+						
+					if(!$currentTranslation) {
+						$uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=" .  $yandex_api_key . "&text=" . urlencode($label->msg_txt) . "&lang=" . strtoupper($l);
+						$translation = file_get_contents( $uri );
+						$json = json_decode($translation);
 
-				if(!$currentTranslation) {
-					$uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=" .  $yandex_api_key . "&text=" . urlencode($label->msg_txt) . "&lang=" . strtoupper($l);
-					$translation = file_get_contents( $uri );
-					$json = json_decode($translation);
+						DB::table('labels')->insert(
+							[
+								'key'=>$label->key,
+								'lang'=>strtoupper($l),
+								'msg_txt'=>$json->text[0],
+							]
+						);
 
-					DB::table('labels')->insert(
-						[
-							'key'=>$label->key,
-							'lang'=>strtoupper($l),
-							'msg_txt'=>$json->text[0],
-						]
-					);
+						echo "; <strong>trasnslated=" . $json->text[0] . " </strong></br>";
 
-					echo "; <strong>trasnslated=" . $json->text[0] . " </strong></br>";
+					} else {
 
-				} else {
+						echo "; translation exists (" . $currentTranslation->msg_txt . ") <br>";
 
-					echo "; translation exists (" . $currentTranslation->msg_txt . ") <br>";
+					}
 
 				}
 
+
 			}
-
-
-		}
-
+		
 		exit("done");
 
 	}

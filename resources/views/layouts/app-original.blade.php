@@ -54,7 +54,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::check())
-                    <li><a href="#">
+                    <li><a href="{{ URL::to('general-data') }}">
                             <img src="{{ Auth::user()->getImage() }}" class="profile-img img-circle" />
                             {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} ({{ Auth::user()->getPersonalId() }})
                         </a></li>
