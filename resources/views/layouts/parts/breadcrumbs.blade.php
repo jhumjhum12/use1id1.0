@@ -1,8 +1,8 @@
 <div class="breadcrumbs">
 
-@if(count(\App\ScreenBuilder\Screen::$breadcrumbs)>1)	
+@if(count(\App\ScreenBuilder\ScreenNew::$breadcrumbs)>1)	
     <ol class="breadcrumb">
-        @foreach(\App\ScreenBuilder\Screen::$breadcrumbs as $slug=>$name)
+        @foreach(\App\ScreenBuilder\ScreenNew::$breadcrumbs as $slug=>$name)
             <li class="breadcrumb-item"><a href="{{ URL::to($slug) }}">{{ $name }}</a></li>
         @endforeach
     </ol>
@@ -19,11 +19,11 @@
             </ul>
         </div>
     </div>
-@elseif(count(\App\ScreenBuilder\Screen::$sameParent)>1)
+@elseif(count(\App\ScreenBuilder\ScreenNew::$sameParent)>1)
 <div class="tab-nav">
     <div class="parent-submenu">
         <ul>
-            @foreach(\App\ScreenBuilder\Screen::$sameParent as $slg=>$name)
+            @foreach(\App\ScreenBuilder\ScreenNew::$sameParent as $slg=>$name)
                 <li><a @if($slug==$slg) class="active" @endif href="{{ URL::to($slg) }}">{{ $name }}</a></li>
             @endforeach
         </ul>
@@ -34,7 +34,7 @@
 
 <div class="heading text-center"><h1>
         @if(isset($title)){{$title}}
-        @elseif(isset(App\ScreenBuilder\Screen::$screen))
+        @elseif(isset(App\ScreenBuilder\ScreenNew::$screen))
             {{ Label::get(\App\ScreenBuilder\Screen::$screen->label) }}
         @endif
     </h1></div>

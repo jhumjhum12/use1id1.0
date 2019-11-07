@@ -39,7 +39,7 @@ class ScreenNew extends Authenticatable
 		
 		//$slug = ($slug) ? $slug : implode("/", Request::segments());
 
-        self::$screen = self::where("slug", self::$slug)->first();
+        self::$screen = self::where("url_suffix", self::$slug)->first();
 		
 		//$screen = self::where("slug", self::$slug)->first();
         if(!empty(self::$screen->help_video_url)) {
@@ -57,7 +57,7 @@ class ScreenNew extends Authenticatable
         if(!self::$screen) return false;
         self::$breadcrumbs = self::getBreadcrumbsNoParam();
 	   //$breadcrumbs = self::getBreadcrumbsNoParam();
-		//print_r($breadcrumbs);exit;
+		
         self::$sameParent = self::sameParentPagesNoParam();
 		
 	   //$sameParent = self::sameParentPagesNoParam();
@@ -87,12 +87,12 @@ class ScreenNew extends Authenticatable
     public static function getBreadcrumbsNoParam()
     {		
         $breadcrumbs = [  ];
-        $currentParent = self::$screen->id;
+        $currentParent = self::$screen->screen_id;
         do {
-            $screen = Screen::active()->where("id", $currentParent)->first();
+            $screen = ScreenNew::active()->where("screen_id", $currentParent)->first();
             if(!$screen) break;
-            $breadcrumbs[$screen->slug] = Label::get($screen->label);
-            $currentParent = $screen->parent;
+            $breadcrumbs[$screen->url_suffix] = ConfLangInterfaceTexts::get($screen->screen_title);
+            $currentParent = $screen->parent_id;
             if(!$currentParent) break;
         } while(1);
         $rev = array_reverse($breadcrumbs);
@@ -108,10 +108,10 @@ class ScreenNew extends Authenticatable
 		
         $pages = [];
         if(self::$breadcrumbLevels<=2) {return $pages;}
-        $screens = Screen::active()->where("parent", self::$screen->parent)->orderBy('sort', 'asc')->get();
+        $screens = ScreenNew::active()->where("parent_id", self::$screen->parent)->orderBy('sort', 'asc')->get();
 		
         foreach($screens as $screen) {
-            $pages[$screen->slug] = Label::get($screen->label);
+            $pages[$screen->url_suffix] = ConfLangInterfaceTexts::get($screen->screen_title);
         }
         if(count($pages)>2 && self::$breadcrumbLevels>2)			
 			return $pages;
