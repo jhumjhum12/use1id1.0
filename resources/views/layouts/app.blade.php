@@ -59,7 +59,7 @@ if(!isset($slug)) $slug = null;
 
             <ul class="nav navbar-nav navbar-right">
 
-                @if(\App\ScreenBuilder\Screen::helpAvailable() && Auth::check() )
+                @if(\App\ScreenBuilder\ScreenNew::helpAvailable() && Auth::check() )
                 <li class="dropdown help">
                     <span data-id="0" class="open-help">Show Help</span>
                     <span data-id="1" class="close-help">Hide Help</span>

@@ -1,8 +1,8 @@
 <div class="breadcrumbs" >
-{{count(\App\ScreenBuilder\ScreenNew::$breadcrumbs)}}
+
 @if(count(\App\ScreenBuilder\ScreenNew::$breadcrumbs)>1)	
     <ol class="breadcrumb">
-        @foreach(\App\ScreenBuilder\Screen::$breadcrumbs as $slug=>$name)
+        @foreach(\App\ScreenBuilder\ScreenNew::$breadcrumbs as $slug=>$name)
             <li class="breadcrumb-item"><a href="{{ URL::to($slug) }}">{{ $name }}</a></li>
         @endforeach
     </ol>
@@ -34,8 +34,8 @@
 
 <div class="heading text-center"><h1>
         @if(isset($title)){{$title}}
-        @elseif(isset(App\ScreenBuilder\ScreenNew::$screen))
-            {{ Label::get(\App\ScreenBuilder\ScreenNew::$screen->label) }}
+        @elseif(isset(App\ScreenBuilder\Screen::$screen))
+            {{ Label::get(\App\ScreenBuilder\Screen::$screen->label) }}
         @endif
     </h1></div>
 
