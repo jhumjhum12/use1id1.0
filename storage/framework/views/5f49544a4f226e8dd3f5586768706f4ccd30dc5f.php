@@ -1,9 +1,9 @@
-<div class="breadcrumbs">
+<div class="breadcrumbs" >
 
 <?php if(count(\App\ScreenBuilder\ScreenNew::$breadcrumbs)>1): ?>	
     <ol class="breadcrumb">
-        <?php $__currentLoopData = \App\ScreenBuilder\Screen::$breadcrumbs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slug=>$name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <li class="breadcrumb-item"><a href="<?php echo e(URL::to($slug)); ?>"><?php echo e($name); ?></a></li>
+        <?php $__currentLoopData = \App\ScreenBuilder\Screen::$breadcrumbs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $url_suffix=>$screen_title): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <li class="breadcrumb-item"><a href="<?php echo e(URL::to($url_suffix)); ?>"><?php echo e($screen_title); ?></a></li>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </ol>
 <?php endif; ?>
@@ -13,8 +13,8 @@
     <div class="tab-nav">
         <div class="parent-submenu">
             <ul>
-                <?php $__currentLoopData = $submenu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name=>$url): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <li><a href="<?php echo e($url); ?>"><?php echo e($name); ?></a></li>
+                <?php $__currentLoopData = $submenu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $screen_title=>$url_suffix): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <li><a href="<?php echo e($url_suffix); ?>"><?php echo e($screen_title); ?></a></li>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
         </div>
@@ -36,7 +36,7 @@
         <?php if(isset($title)): ?><?php echo e($title); ?>
 
         <?php elseif(isset(App\ScreenBuilder\ScreenNew::$screen)): ?>
-            <?php echo e(Label::get(\App\ScreenBuilder\ScreenNew::$screen->label)); ?>
+            <?php echo e(ConfLangInterfaceTexts::get(\App\ScreenBuilder\ScreenNew::$screen->screen_title)); ?>
 
         <?php endif; ?>
     </h1></div>

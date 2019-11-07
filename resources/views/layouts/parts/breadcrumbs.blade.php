@@ -1,5 +1,4 @@
 <div class="breadcrumbs" >
-{{count(\App\ScreenBuilder\ScreenNew::$breadcrumbs)}}
 @if(count(\App\ScreenBuilder\ScreenNew::$breadcrumbs)>1)	
     <ol class="breadcrumb">
         @foreach(\App\ScreenBuilder\Screen::$breadcrumbs as $slug=>$name)
