@@ -2,7 +2,7 @@
 
 namespace App\ScreenBuilder;
 
-use App\Label;
+use App\ConfLangInterfaceTexts;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Translate;

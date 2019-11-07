@@ -2,7 +2,7 @@
 
 <?php if(count(\App\ScreenBuilder\ScreenNew::$breadcrumbs)>1): ?>	
     <ol class="breadcrumb">
-        <?php $__currentLoopData = \App\ScreenBuilder\ScreenNew::$breadcrumbs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slug=>$name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php $__currentLoopData = \App\ScreenBuilder\Screen::$breadcrumbs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slug=>$name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <li class="breadcrumb-item"><a href="<?php echo e(URL::to($slug)); ?>"><?php echo e($name); ?></a></li>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </ol>
@@ -36,7 +36,7 @@
         <?php if(isset($title)): ?><?php echo e($title); ?>
 
         <?php elseif(isset(App\ScreenBuilder\ScreenNew::$screen)): ?>
-            <?php echo e(Label::get(\App\ScreenBuilder\Screen::$screen->label)); ?>
+            <?php echo e(Label::get(\App\ScreenBuilder\ScreenNew::$screen->label)); ?>
 
         <?php endif; ?>
     </h1></div>
