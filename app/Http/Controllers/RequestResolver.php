@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App;
 use DB;
 use Notification;
-use App\ScreenBuilder\ScreenSegments;
+use App\ScreenBuilder\ScreenSegmentsNew;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Models\HTMLBuilder as HTMLBuilder;
 use Illuminate\Support\Facades\Input;
-use App\ScreenBuilder\Screen;
+use App\ScreenBuilder\ScreenNew;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -54,7 +54,7 @@ class RequestResolver extends Controller
             $explode = explode("::", $function);
             $function = $explode[1];
 
-           $segment = ScreenSegments::where("id", $explode[0])->first();
+           $segment = ScreenSegmentsNew::where("id", $explode[0])->first();
 		   
           $class = ($segment) ? $segment->getModel() : false;
 
@@ -96,11 +96,11 @@ class RequestResolver extends Controller
 			if ($accessLevel == \App\User::USER_BANNED) 
 				return response()->view('errors.404', [], 404); // user banned
 			
-            $screen = Screen::where("slug", $slug)
-					->where('status', '!=', Screen::SCREEN_DELETED)
+            $screen = ScreenNew::where("url_suffix", $slug)
+					->where('is_active', '!=', ScreenNew::SCREEN_DELETED)
 					->firstOrFail();
 
-			if (!$screen || $screen->status == Screen::SCREEN_DRAFT
+			if (!$screen || $screen->is_active == ScreenNew::SCREEN_DRAFT
 					&& $accessLevel != \App\User::USER_ADMIN) {
 				// screen in draft & user not admin, return 404
 				return response()->view('errors.404', [], 404);
