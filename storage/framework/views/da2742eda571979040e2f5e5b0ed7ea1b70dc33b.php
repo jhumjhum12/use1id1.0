@@ -54,7 +54,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <?php if(Auth::check()): ?>
-                    <li><a href="#">
+                    <li><a href="<?php echo e(URL::to('general-data')); ?>">
                             <img src="<?php echo e(Auth::user()->getImage()); ?>" class="profile-img img-circle" />
                             <?php echo e(Auth::user()->first_name); ?> <?php echo e(Auth::user()->last_name); ?> (<?php echo e(Auth::user()->getPersonalId()); ?>)
                         </a></li>

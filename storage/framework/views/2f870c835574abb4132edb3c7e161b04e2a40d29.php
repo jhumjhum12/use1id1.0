@@ -49,7 +49,7 @@
 
         <div class="f f2">
 
-            <?php echo $__env->make('admin.screen-builder.partials.angular-builder-screens-editor', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('admin.screen-builder.partials.angular-builder-screens-editor-new', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->make('admin.screen-builder.partials.angular-builder-screen-editor-new', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->make('admin.screen-builder.partials.angular-builder-segment-editor-new', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php echo $__env->make('admin.screen-builder.partials.angular-builder-fields-editor-new', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
