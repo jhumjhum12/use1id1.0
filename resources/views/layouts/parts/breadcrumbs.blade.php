@@ -34,8 +34,8 @@
 
 <div class="heading text-center"><h1>
         @if(isset($title)){{$title}}
-        @elseif(isset(App\ScreenBuilder\Screen::$screen))
-            {{ Label::get(\App\ScreenBuilder\Screen::$screen->label) }}
+        @elseif(isset(App\ScreenBuilder\ScreenNew::$screen))
+            {{ App\ConfLangInterfaceTexts::get(App\ScreenBuilder\ScreenNew::$screen->screen_title) }}
         @endif
     </h1></div>
 

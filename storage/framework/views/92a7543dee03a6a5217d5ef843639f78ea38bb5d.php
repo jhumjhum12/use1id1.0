@@ -35,8 +35,8 @@
 <div class="heading text-center"><h1>
         <?php if(isset($title)): ?><?php echo e($title); ?>
 
-        <?php elseif(isset(App\ScreenBuilder\Screen::$screen)): ?>
-            <?php echo e(Label::get(\App\ScreenBuilder\Screen::$screen->label)); ?>
+        <?php elseif(isset(App\ScreenBuilder\ScreenNew::$screen)): ?>
+            <?php echo e(App\ConfLangInterfaceTexts::get(App\ScreenBuilder\ScreenNew::$screen->screen_title)); ?>
 
         <?php endif; ?>
     </h1></div>
