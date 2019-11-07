@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Input;
 use App\ScreenBuilder\ScreenNew;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use App\ConfLangInterfaceTexts;
 
 class RequestResolver extends Controller
 {
@@ -108,6 +109,7 @@ class RequestResolver extends Controller
 
             // get Request
             $response = \App\ScreenBuilder\HTMLBuilder::renderScreen($slug);
+			$title=ConfLangInterfaceTexts::get($screen->screen_title);
 			//echo '<pre>';print_r($response);exit;
 
             if(isset($response['error'])) {
@@ -116,6 +118,7 @@ class RequestResolver extends Controller
                 return view($response['screen']->getTemplate())
                     ->with('htmlBuilt', true)
                     ->with('screen', $screen)
+					->with('title', $title)
                     ->with('result', $response['result']);
             }
         }

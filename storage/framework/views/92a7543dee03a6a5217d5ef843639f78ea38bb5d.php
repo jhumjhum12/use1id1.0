@@ -1,5 +1,4 @@
 <div class="breadcrumbs" >
-<?php echo e(count(\App\ScreenBuilder\ScreenNew::$breadcrumbs)); ?>
 
 <?php if(count(\App\ScreenBuilder\ScreenNew::$breadcrumbs)>1): ?>	
     <ol class="breadcrumb">
@@ -36,7 +35,7 @@
 <div class="heading text-center"><h1>
         <?php if(isset($title)): ?><?php echo e($title); ?>
 
-        <?php elseif(isset(App\ScreenBuilder\ScreenNew::$screen)): ?>
+        <?php elseif(isset(App\ScreenBuilder\Screen::$screen)): ?>
             <?php echo e(Label::get(\App\ScreenBuilder\Screen::$screen->label)); ?>
 
         <?php endif; ?>

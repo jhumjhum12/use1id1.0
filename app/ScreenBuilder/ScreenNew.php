@@ -108,7 +108,7 @@ class ScreenNew extends Authenticatable
 		
         $pages = [];
         if(self::$breadcrumbLevels<=2) {return $pages;}
-        $screens = ScreenNew::active()->where("parent_id", self::$screen->parent)->orderBy('sort', 'asc')->get();
+        $screens = ScreenNew::active()->where("parent_id", self::$screen->parent_id)->orderBy('sort', 'asc')->get();
 		
         foreach($screens as $screen) {
             $pages[$screen->url_suffix] = ConfLangInterfaceTexts::get($screen->screen_title);
@@ -125,7 +125,7 @@ class ScreenNew extends Authenticatable
 
     static public function helpAvailable()
     {
-        return (!empty(self::$screen->help_video_url) || !empty(self::$screen->help_html)) ? true : false;
+        return (!empty(self::$screen->video) || !empty(self::$screen->help_text)) ? true : false;
     }
 
 

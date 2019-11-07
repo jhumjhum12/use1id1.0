@@ -1,6 +1,6 @@
 <?php
 if(!isset($slug)) $slug = null;
-\App\ScreenBuilder\Screen::init($slug);
+\App\ScreenBuilder\ScreenNew::init($slug);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +59,7 @@ if(!isset($slug)) $slug = null;
 
             <ul class="nav navbar-nav navbar-right">
 
-                <?php if(\App\ScreenBuilder\Screen::helpAvailable() && Auth::check() ): ?>
+                <?php if(\App\ScreenBuilder\ScreenNew::helpAvailable() && Auth::check() ): ?>
                 <li class="dropdown help">
                     <span data-id="0" class="open-help">Show Help</span>
                     <span data-id="1" class="close-help">Hide Help</span>
