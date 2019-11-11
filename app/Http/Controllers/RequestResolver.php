@@ -8,7 +8,7 @@ use Notification;
 use App\ScreenBuilder\ScreenSegmentsNew;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use App\Models\HTMLBuilder as HTMLBuilder;
+use App\Models\HTMLBuilder as HTMLBuilderNew;
 use Illuminate\Support\Facades\Input;
 use App\ScreenBuilder\ScreenNew;
 use Illuminate\Support\Facades\Auth;
@@ -43,19 +43,18 @@ class RequestResolver extends Controller
 
         if ($request->isMethod('post'))
         {
-
+				
             if(!$request->input('function')) {
                 exit("Method not defined");
             }
 
-        $function = $request->get('function');
+			$function = $request->get('function');
 			
             $payload = $request->except(['function']);
 
-            $explode = explode("::", $function);
-            $function = $explode[1];
-
-           $segment = ScreenSegmentsNew::where("id", $explode[0])->first();
+            $explode = explode("::", $function);			
+            $function = $explode[1];			
+           $segment = ScreenSegmentsNew::where("segment_id", $explode[0])->first();
 		  
           $class = ($segment) ? $segment->getModel() : false;
 
@@ -85,14 +84,15 @@ class RequestResolver extends Controller
         // Scenario #2: GET REQUEST
 
         if($request->isMethod('get'))
-        {
+        {			
+			
             // get Screen
             $user = Auth::user();
             $accessLevel = \App\User::USER_DEFAULT;
             if(isset($user->access->level)) {
                 $accessLevel = $user->access->level;
             }
-
+				
             // TODO: Move to middleware
 			if ($accessLevel == \App\User::USER_BANNED) 
 				return response()->view('errors.404', [], 404); // user banned
@@ -104,15 +104,17 @@ class RequestResolver extends Controller
 			if (!$screen || $screen->is_active == ScreenNew::SCREEN_DRAFT
 					&& $accessLevel != \App\User::USER_ADMIN) {
 				// screen in draft & user not admin, return 404
+				
 				return response()->view('errors.404', [], 404);
 			}
-
+			//echo $slug;
             // get Request
-            $response = \App\ScreenBuilder\HTMLBuilder::renderScreen($slug);
+            $response = \App\ScreenBuilder\HTMLBuilderNew::renderScreen($slug);
 			$title=ConfLangInterfaceTexts::get($screen->screen_title);
 			//echo '<pre>';print_r($response);exit;
-
+			
             if(isset($response['error'])) {
+				//print_r($response['error']);exit;
                 return response()->view('errors.404', [], 404);
             } else {
                 return view($response['screen']->getTemplate())

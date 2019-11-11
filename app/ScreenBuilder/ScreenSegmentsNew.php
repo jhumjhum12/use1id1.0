@@ -55,7 +55,7 @@ class ScreenSegmentsNew extends Authenticatable
         }
 
         if($allData) {
-            $htmlFields = ScreenFields::getHTMLFieldDefinition();
+            $htmlFields = ScreenFieldsNew::getHTMLFieldDefinition();
             foreach($htmlFields as $k=>$htmlField) {
                 $htmlField['custom']=true;
                 $return[$k] = $htmlField;
@@ -92,7 +92,7 @@ class ScreenSegmentsNew extends Authenticatable
 
     public static function getClassNameBySegmentId($id)
     {
-        $data = self::where("id", $id)->first();
+        $data = self::where("segment_id", $id)->first();
         if(!$data || !$data->model) return false;
         else return $data->model;
     }

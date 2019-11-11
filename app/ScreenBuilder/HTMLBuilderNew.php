@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
  * Time: 12:25
  */
 
-class HTMLBuilder
+class HTMLBuilderNew
 {
 
     /**
@@ -32,7 +32,8 @@ class HTMLBuilder
 
     public static function renderScreen($slug) {
 
-        $screen = Screen::where("slug", $slug)->first();
+        $screen = ScreenNew::where("url_suffix", $slug)->first();
+		
         if(!$screen) {
             return [
                 'result' => "",
@@ -41,13 +42,15 @@ class HTMLBuilder
         }
 
         $result = "";
-        $screenSegments = ScreenSegments::where("screen_id", $screen->id)->where("status", 1)->orderBy('sort', 'asc')->get();
-        $successfullyParsed = 0;			
+		
+        $screenSegments = ScreenSegmentsNew::where("screen_id", $screen->screen_id)->where("is_active", 1)->orderBy('sort', 'asc')->get();		
+        $successfullyParsed = 0;	
+	
         foreach($screenSegments as $screenSegment) {
 
             $screenSegment->init();
 
-                $html = HTMLBuilder::formBuilder($screenSegment);
+                $html = HTMLBuilderNew::formBuilder($screenSegment);				
                 if(!empty($html)) {
                     $successfullyParsed++;
                 }
@@ -57,9 +60,12 @@ class HTMLBuilder
                     '</div>';
 
         }
+		
         if($successfullyParsed==0) {
-            $result = ScreenFields::loadBlade('errors.under-construction');
+            $result = ScreenFieldsNew::loadBlade('errors.under-construction');
         }
+		
+		
         return [
             'screen' => $screen,
             'result' => $result,
@@ -77,10 +83,10 @@ class HTMLBuilder
     {
 
         $output = "";
-
+			
         // pick up pieces
-        $screenFields = ScreenFields::where("screen_segment_id", $seg->id)->orderBy('sort', 'asc')->get();
-
+        $screenFields = ScreenFieldsNew::where("segment_id", $seg->segment_id)->orderBy('sort', 'asc')->get();
+			
         // no input, no output
         if($screenFields->count() == 0) return "";
 
@@ -98,16 +104,16 @@ class HTMLBuilder
             $output .= Form::model($instance, [ "url"=>"#", "files"=>true]);
         } else {
             $output .= Form::open();
-            ScreenFields::logError("No Data Model");
+            ScreenFieldsNew::logError("No Data Model");
         }
-
+		
         // function that will be called for POST
         $output .= Form::hidden("function", $seg->action);
 
         foreach($screenFields as $key=>$value) {
-            $output .= ScreenFields::createHTML($seg, $value);
+            $output .= ScreenFieldsNew::createHTML($seg, $value);
         }
-
+		//echo '<pre>';print_r($output);exit;
         // form is autoclosing after submit-button
         // $output .= Form::close();
 

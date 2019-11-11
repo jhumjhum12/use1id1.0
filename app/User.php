@@ -300,8 +300,7 @@ class User extends Authenticatable
     {
 
         $user = self::where("id", Auth::user()->id)->firstOrFail();
-        $dataOriginal = $_POST;
-
+       $dataOriginal = $_POST;
         $data = Input::all();
         $data = $this->transformFields($data);
         $user->fill($data);

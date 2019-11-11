@@ -7,9 +7,9 @@
 {{--
 @if(isset($htmlBuilt) && $htmlBuilt==true && Auth::user()->isAdmin())
 <div id="open-in-screen-builder">
-@if(App\ScreenBuilder\ScreenFields::getErrors())
+@if(App\ScreenBuilder\ScreenFieldsnew::getErrors())
     <ul>
-        @foreach(App\ScreenBuilder\ScreenFields::getErrors() as $e)
+        @foreach(App\ScreenBuilder\ScreenFieldsNew::getErrors() as $e)
             <li><i class="fa fa-exclamation-triangle"></i> {{ $e }}</li>
         @endforeach
     </ul>

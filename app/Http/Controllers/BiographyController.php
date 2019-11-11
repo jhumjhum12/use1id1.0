@@ -455,8 +455,7 @@ class BiographyController extends Controller
 		return $response;
 	}
 	
-	public function editworkdata(){
-		$input=$_POST;
+	public function editworkdata(){		
 		$userId = Auth::user()->id;
 		
 		$work = WorkExperience::find($input['work_id']);

@@ -36,7 +36,7 @@
         <?php if(isset($title)): ?><?php echo e($title); ?>
 
         <?php elseif(isset(App\ScreenBuilder\ScreenNew::$screen)): ?>
-            <?php echo e(App\ConfLangInterfaceTexts::get(\App\ScreenBuilder\ScreenNew::$screen->screen_title)); ?>
+            <?php echo e(App\ConfLangInterfaceTexts::get(App\ScreenBuilder\ScreenNew::$screen->screen_title)); ?>
 
         <?php endif; ?>
     </h1></div>

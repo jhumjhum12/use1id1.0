@@ -30,30 +30,31 @@ class ScreenFieldsNew extends Authenticatable
     {
     }
 
-    public static function createHTML(ScreenSegments $seg, ScreenFields $value)
+    public static function createHTML(ScreenSegmentsNew $seg, ScreenFieldsNew $value)
     {
 
         $output = "";
 		
         // screen field may have serialized meta fields, let's unpack them
         $value->unpackMeta();
-
+		
         // we have some hardcoded values stored in model definition, they may be useful
         if($seg->model && class_exists($seg->model)) {
             $tempClass = new $seg->model;
             $tempFields = $tempClass->getFields();
-        }
-
-        $label = \App\Label::getByKey($value->label);
-        if(isset($label[0]['msg_txt'])) {
-            $value->label = $label[0]['msg_txt'];
+        }			
+        $label = \App\ConfLangInterfaceTexts::get($value->field);
+		
+        if(isset($label)) {
+            $value->label = $label;
         } else {
-            if($value->type != "recordset")
-            self::logError("LBL: Missing label (" . $value->type . ") " . $value->name);
+            if($value->field_activity != "recordset")
+            self::logError("LBL: Missing label (" . $value->field_activity . ") " . $value->field);
         }
-
+		
+		//echo $value->field_activity.'--';
         // let's build some HTML
-        switch($value->type) {
+        switch($value->field_activity) {
 
             // in other cases, create form control what is said on screen builder
             case "text":
@@ -62,27 +63,28 @@ class ScreenFieldsNew extends Authenticatable
             case "number":
             case "date":
             case "readonly":
-                $output .= ScreenFields::buildInputField($value);
+                $output .= ScreenFieldsNew::buildInputField($value);
                 break;
 
             case "password":
             case "encrypted_password":
-                $output .= ScreenFields::buildPasswordField($value);
+                $output .= ScreenFieldsNew::buildPasswordField($value);
                 break;
 
             case "select":
-                $output .= ScreenFields::buildSelectField($seg, $value);
+                $output .= ScreenFieldsNew::buildSelectField($seg, $value);
                 break;
 
             // good ol' submit button
             case "submit":
              if($seg->isEditMode == '1' && $seg->model != 'App\User')
 				{ 
-					$cls = 'btn btn-primary submitcss';
+					//$cls = 'btn btn-primary submitcss';
+						$cls = 'btn btn-primary';
 				} else {
 					$cls ="btn btn-primary";
 				}
-               $field = "<div style='clear:both' class='form-group'><button type='submit' name='submit' class='".$cls."'>" . $value->label . "</button></div></form>";
+               $field = "<div style='clear:both' class='form-group'><button type='submit' name='submit' class='".$cls."'>" . $value->field . "</button></div></form>";
                 $output .= $field;
                 break;
 
@@ -136,6 +138,8 @@ class ScreenFieldsNew extends Authenticatable
 				}	
 
         }
+		
+		
         return $output;
 
     }
@@ -195,21 +199,22 @@ class ScreenFieldsNew extends Authenticatable
     {
         $arg = [];
         $arg['class'] = self::$defaultInputClasses;
-        $type = $value->type;
+        $type = $value->field_activity;
 
         $labelClass = (!empty($value->validation)) ? "label-required" : "";
 
-        if($value->type == "date") {
+        if($value->field_activity == "date") {
             $arg['class'] .= " datepicker";
             $type = "text";
         };
-        if($value->type=="readonly") {
+        if($value->field_activity=="readonly") {
             $arg['readonly'] = 'readonly';
             $arg['disabled'] = 'disabled';
             $type = "text";
         };
-        $label = Form::label($value->name, $value->label, ['class'=>$labelClass]);
-        $field = Form::$type($value->name, null, $arg);
+		
+        $label = Form::label($value->field, $value->field, ['class'=>$labelClass]);
+        $field = Form::$type($value->field, null, $arg);
         return "<div class='form-group'><div class='control-label'>" . $label . "</div>" . $field . "</div>";
     }
 
@@ -217,33 +222,34 @@ class ScreenFieldsNew extends Authenticatable
     {
         $labelClass = (!empty($value->validation)) ? "label-required" : "";
         $classes = self::$defaultInputClasses;
-        if($value->type=="encrypted_password") {
+        if($value->field_activity=="encrypted_password") {
             $classes .= " encrypted_password";
         }
-        $label = Form::label($value->name, $value->label, ['class'=>$labelClass]);
-        $field = Form::password($value->name, ['class' => $classes ]);
+        $label = Form::label($value->field, $value->field, ['class'=>$labelClass]);
+        $field = Form::password($value->field, ['class' => $classes ]);
         return "<div class='form-group'><div class='control-label'>" . $label . "</div>" . $field . "</div>";
     }
 
     public static function buildFileField($field)
     {
-        $label = Form::label($field->name, $field->label);
-        $field = Form::file($field->name, ['class' => self::$defaultInputClasses ]);
+        $label = Form::label($field->field, $field->field);
+        $field = Form::file($field->field, ['class' => self::$defaultInputClasses ]);
         return "<div class='form-group'><div class='control-label'>" . $label . "</div>" . $field . "</div>";
     }
 
     public static function buildSelectField($seg, $value)
-    {
+    {		
         $labelClass = (!empty($value->validation)) ? "label-required" : "";
         $class = $seg->model;
         if($class) {
             $w = new $class();
-            $temp = $w->getFields();
+            $temp = $w->getFields(); 
+			
             if(empty($temp)) return self::logErrorAndReturn("Empty getFields");
-            if(!isset($temp[$value->name])) return self::logErrorAndReturn("Missing name field "  . $value->name);
-            if(!isset($temp[$value->name]['options'])) return self::logErrorAndReturn("Missing options for "  . $value->name);
-            $label = Form::label($value->name, $value->label, ['class'=> $labelClass]);
-            $field = Form::select($value->name, $temp[$value->name]['options'], null, ['class'=>self::$defaultInputClasses] );
+            if(!isset($temp[$value->field])) return self::logErrorAndReturn("Missing name field "  . $value->field);
+            if(!isset($temp[$value->field]['options'])) return self::logErrorAndReturn("Missing options for "  . $value->field);
+			$label = Form::label($value->field, $value->field, ['class'=> $labelClass]);
+            $field = Form::select($value->field, $temp[$value->field]['options'], null, ['class'=>self::$defaultInputClasses] );
             return "<div class='form-group'><div class='control-label'>" . $label . "</div>" . $field . "</div>";
         }
         return self::logErrorAndReturn("Missing class "  . $class);
@@ -277,24 +283,29 @@ class ScreenFieldsNew extends Authenticatable
 
     static private function createLink($value)
     {
+		
+		
         if($value->href) {
-            $screen = Screen::where("id", $value->href)->firstOrFail();
-            $value->href = URL::to($screen->slug);
+            $screen = ScreenNew::where("screen_id", $value->href)->firstOrFail();
+            $value->href = URL::to($screen->url_suffix);
         } else {
             $value->href = "#";
         }
-        return "<a class='fld-link " . $value->class . "' id='fld-link-" . $value->id . "' href='" . $value->href . "'><span>$value->label</span></a>";
+		//echo '<pre>';print_r($value);exit;
+		
+		$label = \App\ConfLangInterfaceTexts::get($screen->screen_title);
+        return "<a class='fld-link " . $value->class . "' id='fld-link-" . $value->id . "' href='" . $value->href . "'><span>$label</span></a>";
     }
 
 	static private function createCancelLink($value)
     {
         if($value->href) {
-            $screen = Screen::where("id", $value->href)->firstOrFail();
-            $value->href = URL::to($screen->slug);
+            $screen = ScreenNew::where("screen_id", $value->href)->firstOrFail();
+            $value->href = URL::to($screen->url_suffix);
         } else {
             $value->href = "#";
         }
-        return "<div style='clear:both' class='form-group'><a class='btn btn-primary " . $value->class . "' id='fld-link-" . $value->id . "' href='" . $value->href . "'><span>$value->label</span></a></div>";
+        return "<div style='clear:both' class='form-group'><a class='btn btn-primary " . $value->class . "' id='fld-link-" . $value->id . "' href='" . $value->href . "'><span>$value->field</span></a></div>";
     }
 
     public function meta($field=null)
